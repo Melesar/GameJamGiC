@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7931858441314474250}
   - component: {fileID: 7931858441314474251}
   - component: {fileID: 7931858441314474245}
+  - component: {fileID: 7500558818367790839}
   m_Layer: 0
   m_Name: Resources
   m_TagString: Untagged
@@ -61,3 +62,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _grid: {fileID: 7931858441314474251}
+  _resourcesController: {fileID: 7500558818367790839}
+--- !u!114 &7500558818367790839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7931858441314474248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f491d95e67d49999d9377468c525e78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

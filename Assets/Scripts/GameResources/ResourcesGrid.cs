@@ -11,17 +11,13 @@ namespace GameResources
 
         private ResourceItem[,] _grid;
 
-        public void Dig(ResourceItem item)
+        public bool TryDigging(ResourceItem item)
         {
             if (item.IsAvailableForDigging == false)
             {
-                //TODO provide visual feedback
-                return;
+                return false;
             }
 
-            Resource resource = item.Resource;
-            //TODO collect the resource
-            
             (int row, int column) = item.Position;
             for (int i = Mathf.Max(row - 1, 0); i <= Mathf.Min(row + 1, _map.Size.Item2 - 1); i++)
             {
@@ -37,6 +33,7 @@ namespace GameResources
             
             Destroy(item.gameObject);
             _grid[row, column] = null;
+            return true;
         }
         
         private void Start()
