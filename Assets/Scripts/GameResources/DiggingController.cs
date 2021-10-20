@@ -71,7 +71,18 @@ namespace GameResources
         private bool TryGetResource(RaycastHit hit, out ResourceItem item)
         {
             item = hit.collider.GetComponentInParent<ResourceItem>();
-            return item != null && item.IsAvailableForDigging;
+            if (item == null)
+            {
+                return false;
+            }
+
+            if (item.IsAvailableForDigging == false)
+            {
+                item.Blink();
+                return false;
+            }
+
+            return true;
         }
 
         private enum DiggingState
