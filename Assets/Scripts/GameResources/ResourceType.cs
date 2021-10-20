@@ -4,7 +4,7 @@ namespace GameResources
     {
         None,
         Sand,
-        Clay,
+        Stone,
         Oil,
         Water,
         Platinum

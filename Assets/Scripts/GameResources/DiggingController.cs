@@ -1,4 +1,5 @@
 using DefaultNamespace;
+using DefaultNamespace.UI;
 using UnityEngine;
 
 namespace GameResources
@@ -8,8 +9,15 @@ namespace GameResources
         [SerializeField] private ResourcesGrid _grid;
         [SerializeField] private ResourcesController _resourcesController;
         [SerializeField] private BuildTileClick _buildTileClick;
+        [SerializeField] private SelectedResourceUI _selectedResourceUI;
+        
         private DiggingState _currentState;
         private ResourceItem _selectedResource;
+
+        private void Awake()
+        {
+            _selectedResourceUI.SetSelectedResource(null);
+        }
         
         private void Update()
         {
@@ -46,6 +54,7 @@ namespace GameResources
         {
             _currentState = DiggingState.None;
             _selectedResource = null;
+            _selectedResourceUI.SetSelectedResource(null);
         }
 
         private void UseResource()
@@ -53,27 +62,27 @@ namespace GameResources
             Resource resource = _selectedResource.Resource;
            
             if(!Input.GetMouseButtonDown(0))
-                {
+            {
                 return;
             }
-
 
             if (_grid.TryDigging(_selectedResource) == false)
             {
                 return;
             }
             
-           if(_buildTileClick.transform.position.x <0)
-            _resourcesController.OnResourceUsed(resource, BoardSide.City);
-           else
-            _resourcesController.OnResourceUsed(resource, BoardSide.Nature);
-            Debug.Log($"Used resource {resource.Type}. Now there is {_resourcesController.GetResourcePoints(BoardSide.City)} resources");
+            if(_buildTileClick.transform.position.x <0)
+                _resourcesController.OnResourceUsed(resource, BoardSide.City);
+            else
+                _resourcesController.OnResourceUsed(resource, BoardSide.Nature);
+            
+            _selectedResourceUI.SetSelectedResource(null);
         }
 
         private void SelectResource(ResourceItem resourceItem)
         {
             _selectedResource = resourceItem;
-            Debug.Log($"Selected resource {resourceItem.Resource.Type}");
+            _selectedResourceUI.SetSelectedResource(resourceItem.Resource);
             _currentState = DiggingState.ResourceSelected;
         }
 
