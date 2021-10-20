@@ -1,4 +1,3 @@
-using System;
 using DefaultNamespace;
 using DefaultNamespace.UI;
 using UnityEngine;

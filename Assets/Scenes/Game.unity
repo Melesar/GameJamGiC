@@ -238,11 +238,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!4 &749132766 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1159331309548051116, guid: 86c7b341258f6c1d5af667a726a4d04e, type: 3}
-  m_PrefabInstance: {fileID: 1159331310280327538}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &783435453 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 307395327640680234, guid: 86c7b341258f6c1d5af667a726a4d04e, type: 3}
@@ -264,6 +259,7 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
+  - component: {fileID: 963194229}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -336,6 +332,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 20, y: 0.84, z: 0}
+--- !u!114 &963194229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f22a088258a494ebbc4f413212d1a9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moveSpeed: 0.4
+  _cameraXValue: 1
+  _cameraZOffset: 17
+  _cameraYOffset: 15
+  _lowestY: -1.42
+  _furthestZ: 1
+  _curvatureRadius: 10
+  _transform: {fileID: 963194228}
 --- !u!1001 &1138760488
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -559,7 +575,7 @@ PrefabInstance:
     - target: {fileID: 1544124921611684900, guid: 9a2e10bc9b0ffd89e873308e02a010f9, type: 3}
       propertyPath: _planeTransform
       value: 
-      objectReference: {fileID: 749132766}
+      objectReference: {fileID: 0}
     - target: {fileID: 1544124921611684900, guid: 9a2e10bc9b0ffd89e873308e02a010f9, type: 3}
       propertyPath: _physicsSettings
       value: 
