@@ -8,14 +8,13 @@ namespace GameResources
         [SerializeField] private GameObject[] CityPrefabArray;
         [SerializeField] private GameObject[] NaturePrefabArray;
         [SerializeField] private GameObject Ground;
+        [SerializeField] private GameObject _spawnEffect;
 
        private Renderer _prevTile;
         private Vector3 _selectedTilePos;
         private Color _initialColor;
         public GameObject selectedTile;
         ResourceItem _selectedResource;
-
-        
 
         // Update is called once per frame
         private void Update()
@@ -31,7 +30,6 @@ namespace GameResources
                 return;
             }
             
-            
             selectedTile = hit.collider.transform.gameObject;
             _selectedTilePos = selectedTile.transform.position;
             TileColorChange();
@@ -46,25 +44,21 @@ namespace GameResources
             }
             _selectedResource = _diggingController._selectedResource;
             ChangeTilie();
-            
-
         }
 
         void ChangeTilie()
         {
             GameObject tile;
             if (_selectedTilePos.x < 0)
-                tile = Instantiate(CityPrefabArray[(int)_selectedResource.Resource.Type]);
+                tile = Instantiate(CityPrefabArray[(int) _selectedResource.Resource.Type]);
             else
-                tile = Instantiate(NaturePrefabArray[(int)_selectedResource.Resource.Type]);
+                tile = Instantiate(NaturePrefabArray[(int) _selectedResource.Resource.Type]);
 
-            Quaternion rotation;
-            
             tile.transform.position = _selectedTilePos;
-           
+            Destroy(Instantiate(_spawnEffect, _selectedTilePos, Quaternion.LookRotation(Vector3.up)), 5f);
+
             tile.transform.parent = Ground.transform;
-            rotation = Quaternion.Euler(0,0, Ground.transform.rotation.z);
-           tile.transform.rotation = selectedTile.transform.rotation;
+            tile.transform.rotation = selectedTile.transform.rotation;
             Destroy(selectedTile);
         }
 

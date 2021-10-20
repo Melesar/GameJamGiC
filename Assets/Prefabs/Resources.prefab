@@ -63,6 +63,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _grid: {fileID: 7931858441314474251}
   _resourcesController: {fileID: 7500558818367790839}
+  _buildTileClick: {fileID: 0}
+  _selectedResourceUI: {fileID: 0}
+  _regularReward: {fileID: -3774495425730508120, guid: ad6de6e57c79ed54ca68b912bee89892, type: 3}
+  _shinyReward: {fileID: 4781650840334963690, guid: aa2023dfa064a904d82eae170800c575, type: 3}
+  _shinyRewardThreshold: 50
+  _selectedResource: {fileID: 0}
 --- !u!114 &7500558818367790839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75,27 +81,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f491d95e67d49999d9377468c525e78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _resourceBalanceCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 25.208332
-      value: 1
-      inSlope: 0.07701063
-      outSlope: 0.07701063
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.14876033
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
+  _cityPointsUI: {fileID: 0}

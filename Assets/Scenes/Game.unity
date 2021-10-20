@@ -876,4 +876,5 @@ MonoBehaviour:
   - {fileID: 3612447309901408493, guid: feb55111ee3e0d7418e3a62547934d55, type: 3}
   - {fileID: 3619916122192165121, guid: ce2e66aa941eb5c4990f7df1a5d51158, type: 3}
   Ground: {fileID: 783435453}
+  _spawnEffect: {fileID: 4008776295356524562, guid: 890e3b0dbbc7f6c49b5bb8b0d10e57e1, type: 3}
   selectedTile: {fileID: 0}

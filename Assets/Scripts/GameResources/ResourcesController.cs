@@ -23,7 +23,7 @@ namespace GameResources
         }
         
         
-        public void OnResourceUsed(Resource resource, BoardSide side, float bonusMultiplayer)
+        public float OnResourceUsed(Resource resource, BoardSide side, float bonusMultiplayer)
         {
             float points = side switch
             {
@@ -39,6 +39,8 @@ namespace GameResources
             {
                 _cityPointsUI.SetPoints(_pointsMap[side]);
             }
+
+            return pointsToAdd;
         }
 
         public float GetResourcePoints(BoardSide side)
