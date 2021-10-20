@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fabbf95a6ffd4b3eb566244eb52bf0b3, type: 3}
   m_Name: PhysicsSettings
   m_EditorClassIdentifier: 
-  _natureInitialPoints: 10
+  _natureInitialPoints: 100
   _pointsToForceCurve:
     serializedVersion: 2
     m_Curve:

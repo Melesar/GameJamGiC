@@ -348,7 +348,7 @@ MonoBehaviour:
   _cameraXValue: 1
   _cameraZOffset: 17
   _cameraYOffset: 15
-  _lowestY: -1.42
+  _lowestY: 1
   _furthestZ: 1
   _curvatureRadius: 10
   _transform: {fileID: 963194228}
@@ -687,7 +687,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7931858441314474250, guid: ed928d02a79c5859991b7b43d82de4a6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -10.01
+      value: -9
       objectReference: {fileID: 0}
     - target: {fileID: 7931858441314474250, guid: ed928d02a79c5859991b7b43d82de4a6, type: 3}
       propertyPath: m_LocalRotation.w
@@ -716,6 +716,10 @@ PrefabInstance:
     - target: {fileID: 7931858441314474250, guid: ed928d02a79c5859991b7b43d82de4a6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7931858441314474251, guid: ed928d02a79c5859991b7b43d82de4a6, type: 3}
+      propertyPath: _blockSize.z
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed928d02a79c5859991b7b43d82de4a6, type: 3}

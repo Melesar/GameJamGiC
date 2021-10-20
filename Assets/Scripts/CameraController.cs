@@ -56,6 +56,7 @@ namespace DefaultNamespace
             if (_currentLerp < _frontFraction)
             {
                 _transform.position = Vector3.Lerp(_lowest, _transitionStart, _currentLerp / _frontFraction);
+                _transform.rotation = _lookFront;
             }
             else if (_currentLerp < _frontFraction + _curvatureFraction)
             {
@@ -67,6 +68,7 @@ namespace DefaultNamespace
             {
                 float t = Mathf.InverseLerp(_curvatureFraction + _frontFraction, 1f, _currentLerp);
                 _transform.position = Vector3.Lerp(_transitionEnd, _furthest, t);
+                _transform.rotation = _lookTop;
             }
             
         }

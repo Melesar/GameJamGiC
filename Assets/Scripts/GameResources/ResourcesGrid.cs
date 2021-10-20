@@ -12,8 +12,6 @@ namespace GameResources
 
         private ResourceItem[,] _grid;
 
-        public event Action ResourceDug;
-
         public bool TryDigging(ResourceItem item)
         {
             if (item.IsAvailableForDigging == false)
@@ -36,7 +34,6 @@ namespace GameResources
             
             Destroy(item.gameObject);
             _grid[row, column] = null;
-            ResourceDug?.Invoke();
             
             return true;
         }
@@ -59,7 +56,7 @@ namespace GameResources
                     ResourceItem item = SpawnResource(resource, position);
                     item.IsAvailableForDigging = row == 0;
                     item.Position = (row, column);
-                    grid[row, column] = item;
+                    grid[column, row] = item;
                 }
             }
 
