@@ -14,9 +14,9 @@ public class Grid : MonoBehaviour
 
     private void Start()
     {
-        for (float x = moveInX; x < gridSizeX; x += size)
+        for (float x = moveInX; x < gridSizeX*size+moveInX; x += size)
         {
-            for (float z = moveInZ; z < gridSizeZ; z += size)
+            for (float z = moveInZ; z < gridSizeZ*size+moveInZ; z += size)
             {
                
                 _block = Instantiate(Tile);

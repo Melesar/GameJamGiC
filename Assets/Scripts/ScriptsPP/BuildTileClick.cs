@@ -34,7 +34,7 @@ namespace GameResources
             
             selectedTile = hit.collider.transform.gameObject;
             _selectedTilePos = selectedTile.transform.position;
-
+            Debug.Log(_selectedTilePos);
             TileColorChange();
 
             if (!Input.GetMouseButtonDown(0))

@@ -515,6 +515,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground
       objectReference: {fileID: 0}
+    - target: {fileID: 823505314536210840, guid: 86c7b341258f6c1d5af667a726a4d04e, type: 3}
+      propertyPath: moveInX
+      value: -11
+      objectReference: {fileID: 0}
+    - target: {fileID: 823505314536210840, guid: 86c7b341258f6c1d5af667a726a4d04e, type: 3}
+      propertyPath: gridSizeX
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 823505314536210840, guid: 86c7b341258f6c1d5af667a726a4d04e, type: 3}
+      propertyPath: gridSizeZ
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6043813776413557098, guid: 86c7b341258f6c1d5af667a726a4d04e, type: 3}
       propertyPath: m_RootOrder
       value: 5
