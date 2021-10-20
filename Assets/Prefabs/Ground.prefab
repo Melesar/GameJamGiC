@@ -46,9 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Tile: {fileID: 7333764482358279304, guid: f1bd4190f0fa497449978b05c5cfc2f9, type: 3}
   size: 2
-  gridSizeX: 16
-  gridSizeZ: 10
-  moveInX: -10
+  gridSizeX: 12
+  gridSizeZ: 5
+  moveInX: -11
   moveInZ: -8
 --- !u!54 &4182337982704443024
 Rigidbody:
