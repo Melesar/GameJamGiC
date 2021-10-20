@@ -1,13 +1,14 @@
 using System;
 using System.Collections.Generic;
 using DefaultNamespace;
+using DefaultNamespace.UI;
 using UnityEngine;
 
 namespace GameResources
 {
     public class ResourcesController : MonoBehaviour
     {
-        [SerializeField] private AnimationCurve _resourceBalanceCurve;
+        [SerializeField] private CityPointsUI _cityPointsUI;
 
         public event Action ResourceUpdated;
         
@@ -20,6 +21,7 @@ namespace GameResources
                 {BoardSide.City, 0},
                 {BoardSide.Nature, 0}
             };
+            _cityPointsUI.SetPoints(0);
         }
         
         //TODO handle different sides of the board
@@ -31,21 +33,18 @@ namespace GameResources
                 BoardSide.Nature => resource.NaturePoints,
                 _ => throw new ArgumentOutOfRangeException(nameof(side), side, null)
             };
-
+            
             _pointsMap[side] += points;
             ResourceUpdated?.Invoke();
+            if (side == BoardSide.City)
+            {
+                _cityPointsUI.SetPoints(_pointsMap[side]);
+            }
         }
 
         public float GetResourcePoints(BoardSide side)
         {
             return _pointsMap[side];
-        }
-
-        public float GetResourceBalance()
-        {
-            float pointsCity = _pointsMap[BoardSide.City];
-            float pointsNature = _pointsMap[BoardSide.Nature];
-            return _resourceBalanceCurve.Evaluate(pointsCity - pointsNature);
         }
     }
 }

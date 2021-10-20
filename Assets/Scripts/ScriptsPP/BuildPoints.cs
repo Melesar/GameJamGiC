@@ -13,7 +13,7 @@ public class BuildPoints : MonoBehaviour
     void Start()
     {
         _builded = false;
-        _tilePosition = gameObject.transform.position.x; // Uwzglêdnic obrot
+        _tilePosition = gameObject.transform.position.x; // Uwzglï¿½dnic obrot
     }
 
     // Update is called once per frame
@@ -21,7 +21,6 @@ public class BuildPoints : MonoBehaviour
     {
         if(tileType != 0 && !_builded)
         {
-            PlaneTilt.Instance.PointsCounter = pointScale * tileType * _tilePosition;
             _builded = true;
         }
 
