@@ -8,7 +8,6 @@ namespace GameResources
 {
     public class ResourcesController : MonoBehaviour
     {
-        [SerializeField] private AnimationCurve _resourceBalanceCurve;
         [SerializeField] private CityPointsUI _cityPointsUI;
 
         public event Action ResourceUpdated;
@@ -46,13 +45,6 @@ namespace GameResources
         public float GetResourcePoints(BoardSide side)
         {
             return _pointsMap[side];
-        }
-
-        public float GetResourceBalance()
-        {
-            float pointsCity = _pointsMap[BoardSide.City];
-            float pointsNature = _pointsMap[BoardSide.Nature];
-            return _resourceBalanceCurve.Evaluate(pointsCity - pointsNature);
         }
     }
 }

@@ -7,38 +7,18 @@ namespace DefaultNamespace.Physics
     {
         [SerializeField] private Rigidbody _rigidbody;
         [SerializeField] private ResourcesController _resourcesController;
-        [SerializeField] private float _tiltVelocity;
-
-        private float _targetTilt;
-        private float _currentTilt;
+        [SerializeField] private PhysicsSettings _physicsSettings;
 
         private void FixedUpdate()
         {
-            float newTilt = Mathf.MoveTowardsAngle(_currentTilt, _targetTilt, 5f);
-            float delta = newTilt - _currentTilt;
-            if (Mathf.Approximately(delta, 0))
-            {
-                return;
-            }
+            float cityPoints = _resourcesController.GetResourcePoints(BoardSide.City);
+            float naturePoints = _physicsSettings.NatureInitialPoints + _resourcesController.GetResourcePoints(BoardSide.Nature);
+
+            float cityForce = _physicsSettings.PointsToForceCurve.Evaluate(cityPoints);
+            float natureForce = _physicsSettings.PointsToForceCurve.Evaluate(naturePoints);
             
-            // _planeTransform.RotateAround(_tiltPoint.position, Vector3.forward, delta);
-            _currentTilt = newTilt;
-        }
-
-        private void Awake()
-        {
-            _resourcesController.ResourceUpdated += OnResourceUpdated;
-        }
-
-        private void OnDestroy()
-        {
-            _resourcesController.ResourceUpdated -= OnResourceUpdated;
-        }
-
-        private void OnResourceUpdated()
-        {
-            float balance = _resourcesController.GetResourceBalance();
-            _targetTilt = _tiltVelocity * balance;
+            _rigidbody.AddForceAtPosition(Vector3.down * cityForce, _rigidbody.position + Vector3.left * _physicsSettings.PressureDistance);
+            _rigidbody.AddForceAtPosition(Vector3.down * natureForce, _rigidbody.position + Vector3.right * _physicsSettings.PressureDistance);
         }
     }
 }
