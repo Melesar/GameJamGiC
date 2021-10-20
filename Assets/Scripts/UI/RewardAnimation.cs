@@ -7,7 +7,6 @@ namespace DefaultNamespace.UI
     {
         [SerializeField] private TMP_Text _numberText;
         [SerializeField] private float _animationDuration;
-        [SerializeField] private float _raisingSpeed;
 
         private Camera _camera;
 
@@ -29,7 +28,6 @@ namespace DefaultNamespace.UI
         private void Update()
         {
             transform.forward = _camera.transform.forward;
-            transform.position += _camera.transform.up * _raisingSpeed * Time.deltaTime;
         }
     }
 }
