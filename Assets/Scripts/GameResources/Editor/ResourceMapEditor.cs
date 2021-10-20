@@ -67,7 +67,7 @@ namespace GameResources.Editor
             {
                 resources.InsertArrayElementAtIndex(resources.arraySize);
                 SerializedProperty resource = resources.GetArrayElementAtIndex(resources.arraySize - 1);
-                resource.objectReferenceValue = _resourceDatabase.GetResourceByType(ResourceType.Clay);
+                resource.objectReferenceValue = _resourceDatabase.GetResourceByType(ResourceType.Stone);
             }
             
             while (resources.arraySize > elementsCount)
