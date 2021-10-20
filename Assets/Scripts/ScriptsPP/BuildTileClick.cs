@@ -6,19 +6,15 @@ namespace GameResources
 {
     public class BuildTileClick : MonoBehaviour
     {
-        [SerializeField] private DiggingController _diggingController;
-        public Vector3 mouseWorldPos;
+        [SerializeField] private Resources _resources;
         Renderer _prevTile;
         public GameObject selectedTile;
+      
 
-
-        void Start()
-        {
-
-        }
+        
 
         // Update is called once per frame
-        void Update()
+        private void Update()
         {
 
 
@@ -56,6 +52,8 @@ namespace GameResources
             {
                 return;
             }
+
+            
             TileRenderer.material.color = Color.black;
 
         }
