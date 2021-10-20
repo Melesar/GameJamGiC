@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Water
   m_EditorClassIdentifier: 
   _type: 4
-  _material: {fileID: 0}
+  _material: {fileID: 2100000, guid: 4ffa7ed299cf34dd1ac2dd7e90cd2dce, type: 2}
   _sprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Clay
   m_EditorClassIdentifier: 
   _type: 2
-  _material: {fileID: 0}
+  _material: {fileID: 2100000, guid: e0fc9fb61c96e13e6938e812f0bf65f8, type: 2}
   _sprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}

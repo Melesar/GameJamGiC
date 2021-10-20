@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Platinum
   m_EditorClassIdentifier: 
   _type: 5
-  _material: {fileID: 0}
+  _material: {fileID: 2100000, guid: 511fb2d6a94dafa10a495c94878b157d, type: 2}
   _sprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
