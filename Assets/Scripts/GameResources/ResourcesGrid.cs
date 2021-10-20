@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace GameResources
@@ -10,6 +11,8 @@ namespace GameResources
         [SerializeField] private Vector3 _blockSize;
 
         private ResourceItem[,] _grid;
+
+        public event Action ResourceDug;
 
         public bool TryDigging(ResourceItem item)
         {
@@ -33,6 +36,8 @@ namespace GameResources
             
             Destroy(item.gameObject);
             _grid[row, column] = null;
+            ResourceDug?.Invoke();
+            
             return true;
         }
         
