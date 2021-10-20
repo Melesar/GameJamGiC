@@ -12,5 +12,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2324fbed8a342afaf053cd9ca386e5b, type: 3}
   m_Name: ResourceMap
   m_EditorClassIdentifier: 
-  _width: 0
-  _height: 0
+  _width: 5
+  _height: 5
+  _resources:
+  - {fileID: 11400000, guid: 84f5d6d158823e4d5bb877db85a93cf0, type: 2}
+  - {fileID: 11400000, guid: 84f5d6d158823e4d5bb877db85a93cf0, type: 2}
+  - {fileID: 11400000, guid: 84f5d6d158823e4d5bb877db85a93cf0, type: 2}
+  - {fileID: 11400000, guid: 84f5d6d158823e4d5bb877db85a93cf0, type: 2}
+  - {fileID: 11400000, guid: 84f5d6d158823e4d5bb877db85a93cf0, type: 2}
+  - {fileID: 11400000, guid: 84f5d6d158823e4d5bb877db85a93cf0, type: 2}
+  - {fileID: 11400000, guid: 84f5d6d158823e4d5bb877db85a93cf0, type: 2}
+  - {fileID: 11400000, guid: 84f5d6d158823e4d5bb877db85a93cf0, type: 2}
+  - {fileID: 11400000, guid: 84f5d6d158823e4d5bb877db85a93cf0, type: 2}
+  - {fileID: 11400000, guid: 84f5d6d158823e4d5bb877db85a93cf0, type: 2}
+  - {fileID: 11400000, guid: 84f5d6d158823e4d5bb877db85a93cf0, type: 2}
+  - {fileID: 11400000, guid: 84f5d6d158823e4d5bb877db85a93cf0, type: 2}
+  - {fileID: 11400000, guid: 84f5d6d158823e4d5bb877db85a93cf0, type: 2}
+  - {fileID: 11400000, guid: 84f5d6d158823e4d5bb877db85a93cf0, type: 2}
+  - {fileID: 11400000, guid: 84f5d6d158823e4d5bb877db85a93cf0, type: 2}
+  - {fileID: 11400000, guid: 84f5d6d158823e4d5bb877db85a93cf0, type: 2}
+  - {fileID: 11400000, guid: 84f5d6d158823e4d5bb877db85a93cf0, type: 2}
+  - {fileID: 11400000, guid: 84f5d6d158823e4d5bb877db85a93cf0, type: 2}
+  - {fileID: 11400000, guid: 84f5d6d158823e4d5bb877db85a93cf0, type: 2}
+  - {fileID: 11400000, guid: 84f5d6d158823e4d5bb877db85a93cf0, type: 2}
+  - {fileID: 11400000, guid: 84f5d6d158823e4d5bb877db85a93cf0, type: 2}
+  - {fileID: 11400000, guid: 84f5d6d158823e4d5bb877db85a93cf0, type: 2}
+  - {fileID: 11400000, guid: 84f5d6d158823e4d5bb877db85a93cf0, type: 2}
+  - {fileID: 11400000, guid: 84f5d6d158823e4d5bb877db85a93cf0, type: 2}
+  - {fileID: 11400000, guid: 84f5d6d158823e4d5bb877db85a93cf0, type: 2}
