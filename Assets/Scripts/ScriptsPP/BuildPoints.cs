@@ -25,6 +25,6 @@ public class BuildPoints : MonoBehaviour
             _builded = true;
         }
 
-        Debug.Log(gameObject.transform.position.x);
+        
     }
 }

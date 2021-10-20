@@ -33,7 +33,7 @@ namespace GameResources
                 case DiggingState.ResourceSelected when TryGetResource(hit, out resource):
                     SelectResource(resource);
                     break;
-                case DiggingState.ResourceSelected when _selectedResource != null && _buildTileClick.selectedTile:
+                case DiggingState.ResourceSelected when _selectedResource != null && _buildTileClick.selectedTile !=null:
                     UseResource();
                     break;
                 default:

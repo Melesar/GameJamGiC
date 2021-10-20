@@ -239,6 +239,7 @@ GameObject:
   - component: {fileID: 749132765}
   - component: {fileID: 749132764}
   - component: {fileID: 749132763}
+  - component: {fileID: 749132767}
   m_Layer: 0
   m_Name: GroundPlane
   m_TagString: Untagged
@@ -317,12 +318,29 @@ Transform:
   m_GameObject: {fileID: 749132762}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 40, y: 0.1, z: 20}
-  m_Children:
-  - {fileID: 1700610836}
+  m_LocalScale: {x: 20, y: 0.1, z: 10}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &749132767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 749132762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ff9ee242c90bd43b62aa461f3ac2f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Tile: {fileID: 7333764482358279304, guid: f1bd4190f0fa497449978b05c5cfc2f9, type: 3}
+  size: 2
+  gridSizeX: 16
+  gridSizeZ: 10
+  moveInX: -10
+  moveInZ: -8
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -399,60 +417,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.08442759, y: 0.007305839, z: -0.0006183444, w: 0.99640274}
-  m_LocalPosition: {x: 1.8028613, y: -0.39473587, z: -18.296852}
+  m_LocalRotation: {x: 0.1736435, y: 0.007218983, z: -0.0012729013, w: 0.9847813}
+  m_LocalPosition: {x: 1.8028613, y: 5, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1700610835
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1700610836}
-  - component: {fileID: 1700610837}
-  m_Layer: 0
-  m_Name: Grid
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1700610836
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1700610835}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 749132766}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1700610837
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1700610835}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72ff9ee242c90bd43b62aa461f3ac2f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Tile: {fileID: 1662891042146975309, guid: 855d97d7d9a64ee47b4972fc7c21e14b, type: 3}
-  size: 1
-  gridSizeX: 6
-  gridSizeZ: 10
+  m_LocalEulerAnglesHint: {x: 20, y: 0.84, z: 0}
 --- !u!1001 &1544124920914163902
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -613,15 +584,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _diggingController: {fileID: 7931858441981014175}
   CityPrefabArray:
-  - {fileID: 6958979963099907522, guid: 0331bfc3b91ef2b489309ebc12cd75eb, type: 3}
-  - {fileID: 5359513461758123433, guid: 94345d7eab8af1f4686bf1bd40845664, type: 3}
+  - {fileID: 7333764482358279304, guid: f1bd4190f0fa497449978b05c5cfc2f9, type: 3}
   - {fileID: 9015511369351657152, guid: 4714d2ef63dd8404ab99ff5bbc97ae23, type: 3}
-  - {fileID: 4980547473944053409, guid: 7d43eb7f0fc55ab4e9688685ba328baf, type: 3}
   - {fileID: 4309047850118231933, guid: 990d3aff5a14aeb478c9f7081db452ad, type: 3}
+  - {fileID: 5359513461758123433, guid: 94345d7eab8af1f4686bf1bd40845664, type: 3}
+  - {fileID: 4980547473944053409, guid: 7d43eb7f0fc55ab4e9688685ba328baf, type: 3}
+  - {fileID: 6958979963099907522, guid: 0331bfc3b91ef2b489309ebc12cd75eb, type: 3}
   NaturePrefabArray:
+  - {fileID: 7333764482358279304, guid: f1bd4190f0fa497449978b05c5cfc2f9, type: 3}
   - {fileID: 4521004497766787942, guid: 0321bb1bff5158e40a9fe454b47a8ee2, type: 3}
   - {fileID: 4026651275019567107, guid: 7f7da761ddbfc4e40b7500fed4ebf11b, type: 3}
   - {fileID: 6290195240363452799, guid: 20358048212de69469e8970cc9a652ef, type: 3}
   - {fileID: 3612447309901408493, guid: feb55111ee3e0d7418e3a62547934d55, type: 3}
   - {fileID: 3619916122192165121, guid: ce2e66aa941eb5c4990f7df1a5d51158, type: 3}
+  Grid: {fileID: 749132762}
   selectedTile: {fileID: 0}
