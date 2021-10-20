@@ -7,7 +7,7 @@ namespace GameResources
     {
         [SerializeField] private ResourcesGrid _grid;
         [SerializeField] private ResourcesController _resourcesController;
-
+        [SerializeField] private BuildTileClick _buildTileClick;
         private DiggingState _currentState;
         private ResourceItem _selectedResource;
         
@@ -33,7 +33,7 @@ namespace GameResources
                 case DiggingState.ResourceSelected when TryGetResource(hit, out resource):
                     SelectResource(resource);
                     break;
-                case DiggingState.ResourceSelected when _selectedResource != null:
+                case DiggingState.ResourceSelected when _selectedResource != null && _buildTileClick.selectedTile:
                     UseResource();
                     break;
                 default:
@@ -51,13 +51,22 @@ namespace GameResources
         private void UseResource()
         {
             Resource resource = _selectedResource.Resource;
+           
+            if(!Input.GetMouseButtonDown(0))
+                {
+                return;
+            }
+
+
             if (_grid.TryDigging(_selectedResource) == false)
             {
                 return;
             }
             
-            //TODO determine the side and the place on board
+           if(_buildTileClick.transform.position.x <0)
             _resourcesController.OnResourceUsed(resource, BoardSide.City);
+           else
+            _resourcesController.OnResourceUsed(resource, BoardSide.Nature);
             Debug.Log($"Used resource {resource.Type}. Now there is {_resourcesController.GetResourcePoints(BoardSide.City)} resources");
         }
 
