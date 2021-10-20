@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Grid : MonoBehaviour
 {
-
-
     public GameObject Tile;
     public float size = 1f;
     public float gridSizeX = 6;
@@ -22,15 +20,9 @@ public class Grid : MonoBehaviour
             {
                
                 _block = Instantiate(Tile);
-                _block.transform.position = new Vector3(x, 0.1f, z);
+                _block.transform.position = new Vector3(x, 0.5f, z);
                 _block.transform.parent = gameObject.transform;
-
-
             }
-
         }
     }
-
-
-   
 }
