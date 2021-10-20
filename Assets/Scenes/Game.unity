@@ -243,14 +243,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1159331309548051116, guid: 86c7b341258f6c1d5af667a726a4d04e, type: 3}
   m_PrefabInstance: {fileID: 1159331310280327538}
   m_PrefabAsset: {fileID: 0}
---- !u!54 &749132768 stripped
-Rigidbody:
-  m_CorrespondingSourceObject: {fileID: 1159331309548051090, guid: 86c7b341258f6c1d5af667a726a4d04e, type: 3}
-  m_PrefabInstance: {fileID: 1159331310280327538}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &783435453 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 307395327640680234, guid: 86c7b341258f6c1d5af667a726a4d04e, type: 3}
+  m_PrefabInstance: {fileID: 1159331310280327538}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &783435456 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 4182337982704443024, guid: 86c7b341258f6c1d5af667a726a4d04e, type: 3}
   m_PrefabInstance: {fileID: 1159331310280327538}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &963194225
@@ -555,7 +555,7 @@ PrefabInstance:
     - target: {fileID: 1544124921611684900, guid: 9a2e10bc9b0ffd89e873308e02a010f9, type: 3}
       propertyPath: _rigidbody
       value: 
-      objectReference: {fileID: 749132768}
+      objectReference: {fileID: 783435456}
     - target: {fileID: 1544124921611684900, guid: 9a2e10bc9b0ffd89e873308e02a010f9, type: 3}
       propertyPath: _planeTransform
       value: 
