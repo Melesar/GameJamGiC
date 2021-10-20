@@ -358,7 +358,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3514763541711989083}
-  - component: {fileID: 7470117844487102978}
+  - component: {fileID: 4368104901595226638}
   m_Layer: 0
   m_Name: RewardBubble_Holder_Normal
   m_TagString: Untagged
@@ -381,7 +381,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &7470117844487102978
+--- !u!95 &4368104901595226638
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -391,7 +391,7 @@ Animator:
   m_GameObject: {fileID: 6327753941716334959}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: be98b807186ffd641926c5b3905c4191, type: 2}
+  m_Controller: {fileID: 9100000, guid: 9deec2ce6e7709d4ca9afb115960104a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
