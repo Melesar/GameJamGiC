@@ -11,8 +11,9 @@ namespace GameResources.Editor
         
         private void OnEnable()
         {
-            string[] path = AssetDatabase.FindAssets("t:ResourceDatabase");
-            _resourceDatabase = AssetDatabase.LoadAssetAtPath<ResourceDatabase>(path[0]);
+            string[] guids = AssetDatabase.FindAssets("t:ResourceDatabase");
+            string path = AssetDatabase.GUIDToAssetPath(guids[0]);
+            _resourceDatabase = AssetDatabase.LoadAssetAtPath<ResourceDatabase>(path);
         }
 
         public override void OnInspectorGUI()
@@ -24,8 +25,8 @@ namespace GameResources.Editor
             SerializedProperty resources = serializedObject.FindProperty("_resources");
             
             EditorGUI.BeginChangeCheck();
-            EditorGUILayout.PropertyField(width);
-            EditorGUILayout.PropertyField(height);
+            EditorGUILayout.DelayedIntField(width);
+            EditorGUILayout.DelayedIntField(height);
             if (EditorGUI.EndChangeCheck())
             {
                 RegenerateResources(width.intValue, height.intValue, resources);
@@ -36,15 +37,27 @@ namespace GameResources.Editor
                 EditorGUILayout.BeginHorizontal();
                 for (int column = 0; column < width.intValue; column++)
                 {
-                    var resource = (Resource) resources.GetArrayElementAtIndex(row * height.intValue + column)
-                        .objectReferenceValue;
+                    SerializedProperty resourceProperty = resources.GetArrayElementAtIndex(row * height.intValue + column);
+                    var resource = (Resource) resourceProperty.objectReferenceValue;
                     
-                    EditorGUILayout.LabelField(new GUIContent(resource.Sprite.texture));
+                    bool isPressed = GUILayout.Button(new GUIContent(resource.Sprite.texture),
+                        GUILayout.MaxWidth(100), GUILayout.MaxHeight(100), GUILayout.MinHeight(20), GUILayout.MinHeight(20));
+                    if (isPressed)
+                    {
+                        ScrollResource(resourceProperty, resource.Type);
+                    }
                 }
                 EditorGUILayout.EndHorizontal();
             }
 
             serializedObject.ApplyModifiedProperties();
+        }
+
+        private void ScrollResource(SerializedProperty resourceProperty, ResourceType resourceType)
+        {
+            int length = Enum.GetNames(typeof(ResourceType)).Length;
+            int newValue = (int) Mathf.Repeat((int) resourceType, length - 2) + 1;
+            resourceProperty.objectReferenceValue = _resourceDatabase.GetResourceByType((ResourceType) newValue);
         }
 
         private void RegenerateResources(int width, int height, SerializedProperty resources)
