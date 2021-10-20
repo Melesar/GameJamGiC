@@ -48,7 +48,7 @@ MonoBehaviour:
   _map: {fileID: 11400000, guid: 0e9173fb7f40afb65bc65625bc71896f, type: 2}
   _resourcePrefab: {fileID: 6523207817858005040, guid: 0088966524ebb8a009daf8ce6b2cd043, type: 3}
   _anchor: {fileID: 7931858441314474250}
-  _blockSize: {x: 1, y: 1, z: 10}
+  _blockSize: {x: 1, y: 1, z: 20}
 --- !u!114 &7931858441314474245
 MonoBehaviour:
   m_ObjectHideFlags: 0
