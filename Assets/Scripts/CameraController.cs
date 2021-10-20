@@ -1,5 +1,4 @@
 using System;
-using Cinemachine;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -21,6 +20,8 @@ namespace DefaultNamespace
         private Vector3 _transitionEnd;
         private Vector3 _furthest;
 
+        private Vector3 _lastMousePosition;
+
         private Quaternion _lookFront;
         private Quaternion _lookTop;
 
@@ -32,20 +33,11 @@ namespace DefaultNamespace
 
         private void Update()
         {
-            int direction;
-            if (Input.GetKey(KeyCode.W))
-            {
-                direction = 1;
-            }
-            else if (Input.GetKey(KeyCode.S))
-            {
-                direction = -1;
-            }
-            else
+            if (TryGetMoveDirection(out int direction) == false)
             {
                 return;
             }
-
+            
             float offset = direction * _moveSpeed * Time.deltaTime;
             _currentLerp = Mathf.Clamp(_currentLerp + offset, 0f, 1f);
             
@@ -99,6 +91,33 @@ namespace DefaultNamespace
             _topFraction = topDistance / totalDistance;
             
             Assert.AreApproximatelyEqual(1f, _frontFraction + _curvatureFraction + _topFraction);
+        }
+
+        private bool TryGetMoveDirection(out int direction)
+        {
+            Vector3 mousePosition = Input.mousePosition;
+            
+            if (Input.GetKey(KeyCode.W) || MouseMoveDirection(mousePosition) > 0)
+            {
+                direction = 1;
+            }
+            else if (Input.GetKey(KeyCode.S) || MouseMoveDirection(mousePosition) < 0)
+            {
+                direction = -1;
+            }
+            else
+            {
+                direction = 0;
+            }
+
+            _lastMousePosition = mousePosition;
+
+            int MouseMoveDirection(Vector3 position)
+            {
+                return Input.GetMouseButton(1) ? Math.Sign((position - _lastMousePosition).y) : 0;
+            }
+
+            return direction != 0;
         }
 
         private void OnDrawGizmos()
