@@ -1,3 +1,4 @@
+using DefaultNamespace;
 using UnityEngine;
 
 namespace GameResources
@@ -8,6 +9,7 @@ namespace GameResources
         [SerializeField] private ResourceItem _resourcePrefab;
         [SerializeField] private Transform _anchor;
         [SerializeField] private Vector3 _blockSize;
+        [SerializeField] private ResourcesController _resourcesController;
 
         private ResourceItem[,] _grid;
 
@@ -20,7 +22,6 @@ namespace GameResources
             }
 
             Resource resource = item.Resource;
-            //TODO collect the resource
             
             (int row, int column) = item.Position;
             for (int i = Mathf.Max(row - 1, 0); i <= Mathf.Min(row + 1, _map.Size.Item2 - 1); i++)
@@ -37,6 +38,7 @@ namespace GameResources
             
             Destroy(item.gameObject);
             _grid[row, column] = null;
+            _resourcesController.OnResourceUsed(resource, BoardSide.City);
         }
         
         private void Start()
