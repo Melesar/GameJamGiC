@@ -54,13 +54,10 @@ namespace GameResources
             else
                 tile = Instantiate(NaturePrefabArray[(int) _selectedResource.Resource.Type]);
 
-            Quaternion rotation;
-
             tile.transform.position = _selectedTilePos;
             Destroy(Instantiate(_spawnEffect, _selectedTilePos, Quaternion.LookRotation(Vector3.up)), 5f);
 
             tile.transform.parent = Ground.transform;
-            rotation = Quaternion.Euler(0, 0, Ground.transform.rotation.z);
             tile.transform.rotation = selectedTile.transform.rotation;
             Destroy(selectedTile);
         }

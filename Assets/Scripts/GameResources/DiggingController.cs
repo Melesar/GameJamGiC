@@ -10,6 +10,9 @@ namespace GameResources
         [SerializeField] private ResourcesController _resourcesController;
         [SerializeField] private BuildTileClick _buildTileClick;
         [SerializeField] private SelectedResourceUI _selectedResourceUI;
+        [SerializeField] private RewardAnimation _regularReward;
+        [SerializeField] private RewardAnimation _shinyReward;
+        [SerializeField] private float _shinyRewardThreshold;
         
         private DiggingState _currentState;
         public ResourceItem _selectedResource;
@@ -72,11 +75,15 @@ namespace GameResources
                 return;
             }
 
-           
-            if(tileXPosition <0)
-                _resourcesController.OnResourceUsed(resource, BoardSide.City, tileXPosition);
-            else
-                _resourcesController.OnResourceUsed(resource, BoardSide.Nature, tileXPosition);
+            BoardSide boardSide = tileXPosition < 0 ? BoardSide.City : BoardSide.Nature;
+            float receivedPoints = _resourcesController.OnResourceUsed(resource, boardSide, tileXPosition);
+            if (boardSide == BoardSide.City)
+            {
+                RewardAnimation animationPrefab = receivedPoints >= _shinyRewardThreshold ? _shinyReward : _regularReward;
+                RewardAnimation animationInstance = Instantiate(animationPrefab, _buildTileClick.selectedTile.transform.position, Quaternion.identity);
+                animationInstance.SetPoints(receivedPoints);
+            }
+            
             _selectedResourceUI.SetSelectedResource(null);
         }
 

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2524313034957785726}
   - component: {fileID: 704583750355632011}
+  - component: {fileID: 4781650840334963690}
   m_Layer: 0
   m_Name: RewardBubble_Holder_Shiny
   m_TagString: Untagged
@@ -51,6 +52,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4781650840334963690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 310189622654882617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c328ceef0b4742559126cb6b8f75cef6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _numberText: {fileID: 2151350508492948348}
+  _animationDuration: 2.5
+  _raisingSpeed: 4
 --- !u!1 &391603325468308495
 GameObject:
   m_ObjectHideFlags: 0
@@ -79,7 +95,7 @@ RectTransform:
   m_GameObject: {fileID: 391603325468308495}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
+  m_LocalScale: {x: 0.0042343, y: 0.0042343, z: 0.0042343}
   m_Children:
   - {fileID: 7545354569488528852}
   - {fileID: 5655708117386085640}
@@ -90,7 +106,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 4.4}
+  m_AnchoredPosition: {x: 0, y: 1}
   m_SizeDelta: {x: 1073, y: 515}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &3677465375218218788
