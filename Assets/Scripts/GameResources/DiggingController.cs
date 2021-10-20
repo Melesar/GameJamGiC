@@ -61,8 +61,8 @@ namespace GameResources
         private void UseResource()
         {
             Resource resource = _selectedResource.Resource;
-           
-            if(!Input.GetMouseButtonDown(0))
+            float tileXPosition = _buildTileClick.selectedTile.transform.position.x;
+            if (!Input.GetMouseButtonDown(0))
             {
                 return;
             }
@@ -72,11 +72,12 @@ namespace GameResources
             {
                 return;
             }
-            
-            if(_buildTileClick.transform.position.x <0)
-                _resourcesController.OnResourceUsed(resource, BoardSide.City);
+
+           
+            if(tileXPosition <0)
+                _resourcesController.OnResourceUsed(resource, BoardSide.City, tileXPosition);
             else
-                _resourcesController.OnResourceUsed(resource, BoardSide.Nature);
+                _resourcesController.OnResourceUsed(resource, BoardSide.Nature, tileXPosition);
             _selectedResourceUI.SetSelectedResource(null);
         }
 
