@@ -9,9 +9,11 @@ namespace GameResources
         [SerializeField] private DiggingController _diggingController;
         [SerializeField] private GameObject[] CityPrefabArray;
         [SerializeField] private GameObject[] NaturePrefabArray;
+        [SerializeField] private GameObject Grid;
 
        private Renderer _prevTile;
         private Vector3 _selectedTilePos;
+        private Color _initialColor;
         public GameObject selectedTile;
         ResourceItem _selectedResource;
 
@@ -32,23 +34,24 @@ namespace GameResources
             {
                 return;
             }
+            
             _selectedTilePos = buildTile.transform.position;
             selectedTile = hit.collider.transform.gameObject;
             Renderer TileRenderer;
             TileRenderer = buildTile.GetComponent<Renderer>();
-
+            _initialColor = TileRenderer.material.color;
 
 
             if (!_prevTile)
             {
                 _prevTile = TileRenderer;
-                TileRenderer.material.color = Color.red;
+                TileRenderer.material.color = Color.white;
             }
 
             if (TileRenderer != _prevTile)
             {
-                if (_prevTile.material.color == Color.red)
-                    _prevTile.material.color = Color.white;
+                if (_prevTile.material.color == Color.white)
+                    _prevTile.material.color = _initialColor;
                 _prevTile = null;
 
             }
@@ -57,22 +60,26 @@ namespace GameResources
             {
                 return;
             }
-            if (!_selectedResource)
+            if (!_diggingController._selectedResource)
             {
                 return;
             }
             _selectedResource = _diggingController._selectedResource;
-            switch (_selectedResource.Resource.Type)
-            {
-                case ResourceType.Sand:
-                   
-                        Debug.Log("test");
-                    break;
+            ChangeTilie();
+            
 
+        }
 
-            }
-            TileRenderer.material.color = Color.black;
+        void ChangeTilie()
+        {
+            GameObject tile;
+            if (_selectedTilePos.x < 0)
+                tile = Instantiate(CityPrefabArray[(int)_selectedResource.Resource.Type]);
+            else
+                tile = Instantiate(NaturePrefabArray[(int)_selectedResource.Resource.Type]);
 
+            tile.transform.position = _selectedTilePos;
+            tile.transform.parent = Grid.transform;
         }
     }
 }

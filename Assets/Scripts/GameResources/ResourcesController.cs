@@ -40,6 +40,8 @@ namespace GameResources
             {
                 _cityPointsUI.SetPoints(_pointsMap[side]);
             }
+
+           
         }
 
         public float GetResourcePoints(BoardSide side)
