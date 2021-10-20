@@ -12,27 +12,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fabbf95a6ffd4b3eb566244eb52bf0b3, type: 3}
   m_Name: PhysicsSettings
   m_EditorClassIdentifier: 
-  _natureInitialPoints: 100
+  _natureInitialPoints: 25
   _pointsToForceCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 0
-      outSlope: 0
+      inSlope: 0.0026819943
+      outSlope: 0.0026819943
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0
+      outWeight: 0.03573708
     - serializedVersion: 3
-      time: 40
+      time: 100
       value: 1
-      inSlope: 0.040775526
-      outSlope: 0.040775526
+      inSlope: 0.020859934
+      outSlope: 0.020859934
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.025526429
+      inWeight: 0.022973862
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
