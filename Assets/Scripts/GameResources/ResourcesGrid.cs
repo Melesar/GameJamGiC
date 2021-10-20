@@ -1,4 +1,3 @@
-using DefaultNamespace;
 using UnityEngine;
 
 namespace GameResources
@@ -9,20 +8,16 @@ namespace GameResources
         [SerializeField] private ResourceItem _resourcePrefab;
         [SerializeField] private Transform _anchor;
         [SerializeField] private Vector3 _blockSize;
-        [SerializeField] private ResourcesController _resourcesController;
 
         private ResourceItem[,] _grid;
 
-        public void Dig(ResourceItem item)
+        public bool TryDigging(ResourceItem item)
         {
             if (item.IsAvailableForDigging == false)
             {
-                //TODO provide visual feedback
-                return;
+                return false;
             }
 
-            Resource resource = item.Resource;
-            
             (int row, int column) = item.Position;
             for (int i = Mathf.Max(row - 1, 0); i <= Mathf.Min(row + 1, _map.Size.Item2 - 1); i++)
             {
@@ -38,7 +33,7 @@ namespace GameResources
             
             Destroy(item.gameObject);
             _grid[row, column] = null;
-            _resourcesController.OnResourceUsed(resource, BoardSide.City);
+            return true;
         }
         
         private void Start()
