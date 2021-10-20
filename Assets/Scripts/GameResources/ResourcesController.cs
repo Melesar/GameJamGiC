@@ -25,16 +25,18 @@ namespace GameResources
         }
         
         //TODO handle different sides of the board
-        public void OnResourceUsed(Resource resource, BoardSide side)
+        public void OnResourceUsed(Resource resource, BoardSide side, float bonusMultiplayer)
         {
+            Debug.Log(side);
             float points = side switch
             {
                 BoardSide.City => resource.CityPoints,
                 BoardSide.Nature => resource.NaturePoints,
                 _ => throw new ArgumentOutOfRangeException(nameof(side), side, null)
             };
-            
-            _pointsMap[side] += points;
+            Debug.Log(points);
+            _pointsMap[side] += points* Mathf.Round(Mathf.Abs(bonusMultiplayer));
+            Debug.Log(_pointsMap[side]);
             ResourceUpdated?.Invoke();
             if (side == BoardSide.City)
             {
