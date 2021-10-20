@@ -9,7 +9,7 @@ namespace GameResources
         [SerializeField] private ResourcesController _resourcesController;
         [SerializeField] private BuildTileClick _buildTileClick;
         private DiggingState _currentState;
-        private ResourceItem _selectedResource;
+        public ResourceItem _selectedResource;
         
         private void Update()
         {
