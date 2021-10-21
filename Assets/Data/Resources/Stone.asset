@@ -15,5 +15,5 @@ MonoBehaviour:
   _type: 2
   _material: {fileID: 2100000, guid: e0fc9fb61c96e13e6938e812f0bf65f8, type: 2}
   _sprite: {fileID: 21300000, guid: c62a37397a7cda246899e6286709f5e7, type: 3}
-  _cityPoints: 1
-  _naturePoints: 1
+  _cityPoints: 0.5
+  _naturePoints: 0.5
