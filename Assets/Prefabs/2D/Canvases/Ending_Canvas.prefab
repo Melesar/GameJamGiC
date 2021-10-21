@@ -221,8 +221,6 @@ GameObject:
   - component: {fileID: 4766248979433895572}
   - component: {fileID: 207593749619139225}
   - component: {fileID: 4403863796321302251}
-  - component: {fileID: 4089821449059248297}
-  - component: {fileID: 2321631866673635860}
   m_Layer: 5
   m_Name: Ending_Canvas
   m_TagString: Untagged
@@ -314,34 +312,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &4089821449059248297
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4674580929921492141}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a02641b731d4f8a88d65354e7efab4b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _holder: {fileID: 0}
-  _resourceNameText: {fileID: 0}
-  _pointsValue: {fileID: 0}
---- !u!114 &2321631866673635860
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4674580929921492141}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00d75014af614ab799fbefbb56378dfe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _pointsText: {fileID: 2586789385181270080}
 --- !u!1 &7790494917215836508
 GameObject:
   m_ObjectHideFlags: 0
