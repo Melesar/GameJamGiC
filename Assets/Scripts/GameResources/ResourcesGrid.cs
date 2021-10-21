@@ -68,7 +68,7 @@ namespace GameResources
                     Vector3 position = _anchor.position + new Vector3(_blockSize.x * column, -_blockSize.y * row);
                     ResourceItem item = SpawnResource(resource, position);
                     item.IsAvailableForDigging = row == 0;
-                    item.Position = (row, column);
+                    item.Position = (column, row);
                     grid[row * width + column] = item;
                 }
             }

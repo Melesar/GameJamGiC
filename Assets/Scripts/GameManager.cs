@@ -21,7 +21,7 @@ namespace DefaultNamespace
 
         public void StartGame()
         {
-            _tutorialCanvas.enabled = false;
+            // _tutorialCanvas.enabled = false;
             _gameCanvas.enabled = true;
         }
 
