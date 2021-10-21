@@ -3,48 +3,44 @@ using GameResources;
 using System.Collections.Generic;
 using UnityEngine;
 
-    public class MusicController : MonoBehaviour
-    {
-        [SerializeField] private ResourcesController _resourcesController;
-        public UnityEngine.Audio.AudioMixer mixer;
-        public bool Good;
+public class MusicController : MonoBehaviour
+{
+    [SerializeField] private ResourcesController _resourcesController;
+    public UnityEngine.Audio.AudioMixer mixer;
+    public bool Good;
 
-        private string[] MusicVolume =
-        {
+    private string[] MusicVolume =
+    {
         "NeutralVolume",
         "GoodVolume",
         "VGoodVolume",
         "BadVolume",
         "VBadVolume",
         "MasterVolume"
-
     };
 
-        public void SetSound(float soundLevel, string valueName)
-        {
-            mixer.SetFloat(valueName, soundLevel);
-        }
+    public void SetSound(float soundLevel, string valueName)
+    {
+        mixer.SetFloat(valueName, soundLevel);
+    }
 
-        private void Start()
-        {
+    private void Start()
+    {
+        MusicSet(0);
+        SetSound(0, MusicVolume[5]);
+    }
 
-             MusicSet(0);
-            SetSound(0, MusicVolume[5]);
-
-
-        }
-
-        private void FixedUpdate()
-        {
+    private void FixedUpdate()
+    {
         MusicSet(Sustencounter());
-        }
+    }
 
     int Sustencounter()
     {
         //need to adjust
         float cityPoints = _resourcesController.GetResourcePoints(DefaultNamespace.BoardSide.City);
         float naturePoints = _resourcesController.GetResourcePoints(DefaultNamespace.BoardSide.Nature);
-        float sustenValue = Mathf.Abs( cityPoints - naturePoints);
+        float sustenValue = Mathf.Abs(cityPoints - naturePoints);
         Debug.Log(sustenValue);
         if (sustenValue > -1 && sustenValue < 1)
             return 0; //Neutral
@@ -58,19 +54,15 @@ using UnityEngine;
             return 4; //VBad
 
         return 0;
-
     }
 
     void MusicSet(int track)
     {
-        for (int i = 0; i < MusicVolume.Length-1; i++)
+        for (int i = 0; i < MusicVolume.Length - 1; i++)
         {
             SetSound(-80, MusicVolume[i]);
         }
+
         SetSound(0, MusicVolume[track]);
     }
-    }
-
-
-
-        
+}
