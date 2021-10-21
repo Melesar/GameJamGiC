@@ -8,6 +8,7 @@ namespace DefaultNamespace.Physics
         [SerializeField] private Rigidbody _rigidbody;
         [SerializeField] private ResourcesController _resourcesController;
         [SerializeField] private PhysicsSettings _physicsSettings;
+        [SerializeField] private GameManager _gameManager;
 
         private void FixedUpdate()
         {
@@ -19,6 +20,15 @@ namespace DefaultNamespace.Physics
             
             _rigidbody.AddForceAtPosition(Vector3.down * cityForce, _rigidbody.position + Vector3.left * _physicsSettings.PressureDistance);
             _rigidbody.AddForceAtPosition(Vector3.down * natureForce, _rigidbody.position + Vector3.right * _physicsSettings.PressureDistance);
+        }
+
+        private void Awake()
+        {
+            _gameManager.GameRestarts += () =>
+            {
+                _rigidbody.velocity = Vector3.zero;
+                _rigidbody.angularVelocity = Vector3.zero;
+            };
         }
     }
 }
