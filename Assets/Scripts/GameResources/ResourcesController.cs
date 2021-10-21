@@ -9,20 +9,25 @@ namespace GameResources
     public class ResourcesController : MonoBehaviour
     {
         [SerializeField] private CityPointsUI _cityPointsUI;
+        [SerializeField] private GameManager _gameManager;
         
         private Dictionary<BoardSide, float> _pointsMap;
 
         private void Awake()
         {
-            _pointsMap = new Dictionary<BoardSide, float>
-            {
-                {BoardSide.City, 0},
-                {BoardSide.Nature, 0}
-            };
-            _cityPointsUI.SetPoints(0);
+            _gameManager.GameRestarts += OnGameRestarts;
         }
-        
-        
+
+        private void OnDestroy()
+        {
+            _gameManager.GameRestarts -= OnGameRestarts;
+        }
+
+        private void Start()
+        {
+            ResetResources();
+        }
+
         public float OnResourceUsed(Resource resource, BoardSide side, float bonusMultiplayer)
         {
             float points = side switch
@@ -46,6 +51,21 @@ namespace GameResources
         public float GetResourcePoints(BoardSide side)
         {
             return _pointsMap[side];
+        }
+
+        private void ResetResources()
+        {
+            _pointsMap = new Dictionary<BoardSide, float>
+            {
+                {BoardSide.City, 0},
+                {BoardSide.Nature, 0}
+            };
+            _cityPointsUI.SetPoints(0);
+        }
+
+        private void OnGameRestarts()
+        {
+            ResetResources();
         }
     }
 }

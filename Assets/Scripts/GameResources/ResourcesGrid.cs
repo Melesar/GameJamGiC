@@ -1,4 +1,5 @@
 using System;
+using DefaultNamespace;
 using UnityEngine;
 
 namespace GameResources
@@ -9,6 +10,7 @@ namespace GameResources
         [SerializeField] private ResourceItem _resourcePrefab;
         [SerializeField] private Transform _anchor;
         [SerializeField] private Vector3 _blockSize;
+        [SerializeField] private GameManager _gameManager;
 
         private ResourceItem[] _grid;
 
@@ -38,10 +40,20 @@ namespace GameResources
             
             return true;
         }
-        
+
+        private void Awake()
+        {
+            _gameManager.GameRestarts += OnGameRestarts;
+        }
+
         private void Start()
         {
             _grid = GenerateResources();
+        }
+
+        private void OnDestroy()
+        {
+            _gameManager.GameRestarts -= OnGameRestarts;
         }
 
         private ResourceItem[] GenerateResources()
@@ -56,7 +68,7 @@ namespace GameResources
                     Vector3 position = _anchor.position + new Vector3(_blockSize.x * column, -_blockSize.y * row);
                     ResourceItem item = SpawnResource(resource, position);
                     item.IsAvailableForDigging = row == 0;
-                    item.Position = (row, column);
+                    item.Position = (column, row);
                     grid[row * width + column] = item;
                 }
             }
@@ -71,6 +83,15 @@ namespace GameResources
             item.SetSize(_blockSize);
             return item;
         }
+
+        private void OnGameRestarts()
+        {
+            foreach (ResourceItem resourceItem in _grid)
+            {
+                Destroy(resourceItem.gameObject);
+            }
+
+            _grid = GenerateResources();
+        }
     }
-    
 }
