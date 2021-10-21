@@ -7,6 +7,7 @@ namespace GameResources
     {
         [SerializeField] private Transform _rig;
         [SerializeField] private Renderer _renderer;
+        [SerializeField][ColorUsage(false, true)] private Color _highlightColor;
         
         public Resource Resource { get; private set; }
         
@@ -24,6 +25,11 @@ namespace GameResources
         public void SetSize(Vector3 size)
         {
             _rig.localScale = size;
+        }
+
+        public void SetHighlight(bool isEnabled)
+        {
+            _renderer.material.SetColor("_EmissionColor", isEnabled ? _highlightColor : Color.black);
         }
 
         public void Blink()
