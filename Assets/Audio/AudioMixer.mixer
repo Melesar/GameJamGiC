@@ -120,6 +120,63 @@ AudioMixerEffectController:
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
+--- !u!243 &-5711075479080971510
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: GameMusic
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 1f13d5c8839df4b889a2f21b6105386f
+  m_Children:
+  - {fileID: -6586177839558374531}
+  - {fileID: -3056489948702099134}
+  - {fileID: -7598182916670166836}
+  - {fileID: -8675610799818297926}
+  - {fileID: -4394963957927636496}
+  m_Volume: e85243399c8a74663b534feab53cb124
+  m_Pitch: 3c681307ce96b6b2f9e9b34289086a8b
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: -4408917179040297914}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!243 &-5069903636696866665
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Ending
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 6f9d91481bbb62bc787e4f64412a879d
+  m_Children: []
+  m_Volume: 4a604e39a5cd1ed6eb4cacc817fbeb09
+  m_Pitch: 4ea5cd329c15cb044908b8a9301ebaff
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: -748549678602129754}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!244 &-4408917179040297914
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 1de0d544fbb29043782883cc85976104
+  m_EffectName: Attenuation
+  m_MixLevel: d0cd19ce3f648b199b6c8999ba0b7ba6
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!243 &-4394963957927636496
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
@@ -186,6 +243,20 @@ AudioMixerEffectController:
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
+--- !u!244 &-748549678602129754
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 86f816e3473a1fc9e9b1cba537a4fbaf
+  m_EffectName: Attenuation
+  m_MixLevel: 3808798c6e07c69deb2e4b36920d8536
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!244 &-669873680617077119
 AudioMixerEffectController:
   m_ObjectHideFlags: 3
@@ -219,6 +290,10 @@ AudioMixerController:
   m_ExposedParameters:
   - guid: ba19276125bf84b4f8e447d041f0ff5a
     name: BadVolume
+  - guid: 4a604e39a5cd1ed6eb4cacc817fbeb09
+    name: EndingVolume
+  - guid: e85243399c8a74663b534feab53cb124
+    name: GameMusicVolume
   - guid: e00bac6c73aa15745a8e7eafa91c5f58
     name: GoodVolume
   - guid: f1876497b08adec45b011048c277f8ce
@@ -238,6 +313,8 @@ AudioMixerController:
     - 2f809c2a53d3bf0438cc2ebccb7e79d7
     - b64133eeeec082744aa8b74801603b7a
     - 6c8b85d34c6363d4b9d07944bda5d139
+    - 1f13d5c8839df4b889a2f21b6105386f
+    - 6f9d91481bbb62bc787e4f64412a879d
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -251,12 +328,9 @@ AudioMixerGroupController:
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: fc2c8aaf18037e1458ace999fb349200
   m_Children:
-  - {fileID: -6586177839558374531}
-  - {fileID: -3056489948702099134}
-  - {fileID: -7598182916670166836}
-  - {fileID: -8675610799818297926}
-  - {fileID: -4394963957927636496}
+  - {fileID: -5711075479080971510}
   - {fileID: -7661974887663544566}
+  - {fileID: -5069903636696866665}
   m_Volume: f1876497b08adec45b011048c277f8ce
   m_Pitch: adf7f880e559e694797a455f943ab8a3
   m_Send: 00000000000000000000000000000000
@@ -290,10 +364,12 @@ AudioMixerSnapshotController:
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: c3c17dcb1fa46c844b8cf02de42136a6
   m_FloatValues:
+    63d3c3e00037ef643afc2c7265c2b8dc: -4.9356413
     ba19276125bf84b4f8e447d041f0ff5a: -0.29883766
     355d9ed33b956f4409336a77761b2ec8: 1
     3b9242a59a6dccf479825be7a0deeddd: -0.10231405
     f1876497b08adec45b011048c277f8ce: -0.002441872
+    4a604e39a5cd1ed6eb4cacc817fbeb09: -19.928473
     bc246a89b9785ff4f87a41a3158f50a8: -0.002441872
     a7d7095a487604a47b2fa1cc56dda54d: 0.23288241
     e00bac6c73aa15745a8e7eafa91c5f58: 0.025578512
