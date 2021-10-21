@@ -12,7 +12,7 @@ public class MusicController : MonoBehaviour
     [SerializeField] private float pointsToVGoodSound;
     [SerializeField] AudioMixer mixer;
     [SerializeField] private GameManager _gameManager;
-
+    [SerializeField] private GameObject board;
 
     private string[] MusicVolume =
     {
@@ -24,11 +24,9 @@ public class MusicController : MonoBehaviour
         "GameMusicVolume"
     };
 
-    private float sustenValue;
-    private float cityPoints;
-    private float naturePoints;
-    private float prevSustannValue;
-    private int lastSound;
+    public float sustenValue;
+    public float cityPoints;
+
 
     private void Awake()
     {
@@ -61,22 +59,20 @@ public class MusicController : MonoBehaviour
     private void FixedUpdate()
     {
         cityPoints = _resourcesController.GetResourcePoints(BoardSide.City);
-        naturePoints = _resourcesController.GetResourcePoints(BoardSide.Nature);
-        sustenValue = Mathf.Abs(cityPoints - naturePoints);
+        sustenValue = Mathf.Abs( Mathf.Round(board.transform.eulerAngles.z));
 
-        if (sustenValue != prevSustannValue)
-        {
-            Debug.Log(Sustencounter() + "VALLLL");
+           
             MusicSet(Sustencounter());
-            prevSustannValue = sustenValue;
-        }
+          
     }
 
     int Sustencounter()
     {
-        if (sustenValue < sustainBorder)
+        Debug.Log(sustenValue + "tilt");
+        Debug.Log(cityPoints + "citypoints");
+        if (sustenValue < sustainBorder && cityPoints < pointsToGoodSound)
             return 0; //Neutral
-        if (sustenValue < sustainBorder && cityPoints > pointsToGoodSound)
+        if (sustenValue < sustainBorder && cityPoints > pointsToGoodSound && cityPoints <pointsToVGoodSound)
             return 1; //Good
         if (sustenValue < sustainBorder && cityPoints > pointsToVGoodSound)
             return 2; //VGood
