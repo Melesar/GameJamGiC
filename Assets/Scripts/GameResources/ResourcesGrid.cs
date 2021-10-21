@@ -10,7 +10,7 @@ namespace GameResources
         [SerializeField] private Transform _anchor;
         [SerializeField] private Vector3 _blockSize;
 
-        private ResourceItem[,] _grid;
+        private ResourceItem[] _grid;
 
         public bool TryDigging(ResourceItem item)
         {
@@ -19,12 +19,13 @@ namespace GameResources
                 return false;
             }
 
-            (int row, int column) = item.Position;
-            for (int i = Mathf.Max(row - 1, 0); i <= Mathf.Min(row + 1, _map.Size.Item2 - 1); i++)
+            (int x, int y) = item.Position;
+            (int width, int height) = _map.Size;
+            for (int row = Mathf.Max(y - 1, 0); row <= Mathf.Min(y + 1, height - 1); row++)
             {
-                for (int j = Mathf.Max(column - 1, 0); j <= Mathf.Min(column + 1, _map.Size.Item1 - 1); j++)
+                for (int column = Mathf.Max(x - 1, 0); column <= Mathf.Min(x + 1, width - 1); column++)
                 {
-                    ResourceItem gridItem = _grid[j, i];
+                    ResourceItem gridItem = _grid[row * width + column];
                     if (gridItem != null)
                     {
                         gridItem.IsAvailableForDigging = true;
@@ -33,7 +34,7 @@ namespace GameResources
             }
             
             Destroy(item.gameObject);
-            _grid[column, row] = null;
+            _grid[y * width + x] = null;
             
             return true;
         }
@@ -43,10 +44,10 @@ namespace GameResources
             _grid = GenerateResources();
         }
 
-        private ResourceItem[,] GenerateResources()
+        private ResourceItem[] GenerateResources()
         {
             (int width, int height) = _map.Size;
-            var grid = new ResourceItem[width, height];
+            var grid = new ResourceItem[width * height];
             for (int row = 0; row < height; row++)
             {
                 for (int column = 0; column < width; column++)
@@ -56,7 +57,7 @@ namespace GameResources
                     ResourceItem item = SpawnResource(resource, position);
                     item.IsAvailableForDigging = row == 0;
                     item.Position = (row, column);
-                    grid[column, row] = item;
+                    grid[row * width + column] = item;
                 }
             }
 
