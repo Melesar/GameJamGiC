@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 581238501}
   - component: {fileID: 581238500}
   - component: {fileID: 581238499}
+  - component: {fileID: 581238498}
   m_Layer: 0
   m_Name: WaterCube
   m_TagString: Untagged
@@ -141,6 +142,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &581238498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 581238497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4bf5a674f06477b91cadf4b923a7100, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _renderer: {fileID: 581238499}
 --- !u!23 &581238499
 MeshRenderer:
   m_ObjectHideFlags: 0
