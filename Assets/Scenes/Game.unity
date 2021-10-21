@@ -1295,6 +1295,7 @@ MonoBehaviour:
   pointsToVGoodSound: 10
   mixer: {fileID: 24100000, guid: a4be37733eb938f4ab13200853cbb139, type: 2}
   _gameManager: {fileID: 843565210}
+  board: {fileID: 783435453}
 --- !u!82 &918830906
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2352,7 +2353,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6043813776413557098, guid: 86c7b341258f6c1d5af667a726a4d04e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.148
       objectReference: {fileID: 0}
     - target: {fileID: 6043813776413557098, guid: 86c7b341258f6c1d5af667a726a4d04e, type: 3}
       propertyPath: m_LocalPosition.z
