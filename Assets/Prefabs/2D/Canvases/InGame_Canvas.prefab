@@ -822,6 +822,7 @@ GameObject:
   - component: {fileID: 4403863796321302251}
   - component: {fileID: 4089821449059248297}
   - component: {fileID: 2321631866673635860}
+  - component: {fileID: 4005187726660735895}
   m_Layer: 5
   m_Name: InGame_Canvas
   m_TagString: Untagged
@@ -947,6 +948,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _uiSettings: {fileID: 11400000, guid: d168c2587a3667ce78d69396d0687fb8, type: 2}
   _pointsText: {fileID: 2586789385181270080}
+--- !u!114 &4005187726660735895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4674580929921492141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84de739085954db98d354b4cc2608a09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cityIndicator: {fileID: 2819506643504879595}
+  _natureIndicator: {fileID: 3298802928307948358}
 --- !u!1 &7431844929559067663
 GameObject:
   m_ObjectHideFlags: 0

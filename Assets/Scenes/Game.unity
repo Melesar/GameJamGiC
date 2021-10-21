@@ -632,6 +632,18 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4150333934565363379, guid: 761f15be91dde2745aede4440164d626, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4150333934565363379, guid: 761f15be91dde2745aede4440164d626, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4150333934565363379, guid: 761f15be91dde2745aede4440164d626, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4674580929921492141, guid: 761f15be91dde2745aede4440164d626, type: 3}
       propertyPath: m_Name
       value: InGame_Canvas
@@ -687,6 +699,17 @@ Canvas:
   m_CorrespondingSourceObject: {fileID: 4766248979433895572, guid: 761f15be91dde2745aede4440164d626, type: 3}
   m_PrefabInstance: {fileID: 723369390}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &723369392 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4005187726660735895, guid: 761f15be91dde2745aede4440164d626, type: 3}
+  m_PrefabInstance: {fileID: 723369390}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84de739085954db98d354b4cc2608a09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &735399324
 GameObject:
   m_ObjectHideFlags: 0
@@ -2541,6 +2564,10 @@ PrefabInstance:
       propertyPath: _finalPopulation
       value: 
       objectReference: {fileID: 1606457142}
+    - target: {fileID: 7500558818367790839, guid: ed928d02a79c5859991b7b43d82de4a6, type: 3}
+      propertyPath: _stabilityIndicator
+      value: 
+      objectReference: {fileID: 723369392}
     - target: {fileID: 7931858441314474245, guid: ed928d02a79c5859991b7b43d82de4a6, type: 3}
       propertyPath: _gameManager
       value: 

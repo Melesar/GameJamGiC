@@ -11,6 +11,7 @@ namespace GameResources
         [SerializeField] private CityPointsUI _cityPointsUI;
         [SerializeField] private FinalPopulationDisplay _finalPopulation;
         [SerializeField] private GameManager _gameManager;
+        [SerializeField] private StabilityIndicator _stabilityIndicator;
         
         private Dictionary<BoardSide, float> _pointsMap;
 
@@ -46,6 +47,8 @@ namespace GameResources
                 _cityPointsUI.SetPoints(_pointsMap[side]);
                 _finalPopulation.SetFinalPopulation(_pointsMap[side]);
             }
+
+            _stabilityIndicator.SetPoints(_pointsMap[BoardSide.City], _pointsMap[BoardSide.Nature]);
 
             return pointsToAdd;
         }
