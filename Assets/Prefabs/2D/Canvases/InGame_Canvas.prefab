@@ -931,6 +931,7 @@ MonoBehaviour:
   _pointsValue: {fileID: 2550407684485644932}
   _cityImage: {fileID: 1165691713357471100}
   _natureImage: {fileID: 126776257360191610}
+  _uiSettings: {fileID: 11400000, guid: d168c2587a3667ce78d69396d0687fb8, type: 2}
 --- !u!114 &2321631866673635860
 MonoBehaviour:
   m_ObjectHideFlags: 0
