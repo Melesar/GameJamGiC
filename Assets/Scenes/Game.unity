@@ -1312,10 +1312,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _resourcesController: {fileID: 701344153}
-  sustainBorder: 2
-  borderToVBadSound: 5
-  pointsToGoodSound: 5
-  pointsToVGoodSound: 10
+  sustainBorder: 3
+  borderToVBadSound: 8
+  pointsToGoodSound: 20
+  pointsToVGoodSound: 80
   mixer: {fileID: 24100000, guid: a4be37733eb938f4ab13200853cbb139, type: 2}
   _gameManager: {fileID: 843565210}
   board: {fileID: 783435453}
