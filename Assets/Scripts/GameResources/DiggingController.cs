@@ -50,13 +50,17 @@ namespace GameResources
             if (Physics.Raycast(screenRay, out RaycastHit hit, 1000, ~0, QueryTriggerInteraction.Ignore) == false) return;
             if (TryGetResource(hit, out ResourceItem resourceItem) && resourceItem.IsAvailableForDigging)
             {
-                _lastHighlightedResource?.SetHighlight(false);
+                if (_lastHighlightedResource != null)
+                {
+                    _lastHighlightedResource.SetHighlight(false);
+                }
+
                 resourceItem.SetHighlight(true);
                 _lastHighlightedResource = resourceItem;
             }
-            else
+            else if (_lastHighlightedResource != null)
             {
-                _lastHighlightedResource?.SetHighlight(false);
+                _lastHighlightedResource.SetHighlight(false);
             }
             
             if (Input.GetKeyDown(KeyCode.Escape))

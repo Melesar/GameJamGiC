@@ -59,18 +59,18 @@ public class MusicController : MonoBehaviour
     private void FixedUpdate()
     {
         cityPoints = _resourcesController.GetResourcePoints(BoardSide.City);
-        sustenValue = Mathf.Abs( Mathf.Round(board.transform.eulerAngles.z));
+        sustenValue = Mathf.Abs(Mathf.Round(board.transform.eulerAngles.z));
 
-           
-            MusicSet(Sustencounter());
-          
+
+        MusicSet(Sustencounter());
+
     }
 
     int Sustencounter()
     {
         if (sustenValue < sustainBorder && cityPoints < pointsToGoodSound)
             return 0; //Neutral
-        if (sustenValue < sustainBorder && cityPoints > pointsToGoodSound && cityPoints <pointsToVGoodSound)
+        if (sustenValue < sustainBorder && cityPoints > pointsToGoodSound && cityPoints < pointsToVGoodSound)
             return 1; //Good
         if (sustenValue < sustainBorder && cityPoints > pointsToVGoodSound)
             return 2; //VGood
@@ -103,3 +103,4 @@ public class MusicController : MonoBehaviour
         MusicSet(0);
         SetSound(0, MusicVolume[5]);
     }
+}

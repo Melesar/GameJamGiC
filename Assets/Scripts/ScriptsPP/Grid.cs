@@ -53,8 +53,6 @@ public class Grid : MonoBehaviour
             _spawnedObjects.Add(baseBlock);
             for (float z = moveInZ; z < gridSizeZ * size + moveInZ; z += size)
             {
-               
-
                 GameObject block = Instantiate(Tile);
 
                 if (x == bonusNaturePos.x && z == bonusNaturePos.z)
