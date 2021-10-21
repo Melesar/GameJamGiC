@@ -14,8 +14,11 @@ namespace DefaultNamespace
         public event Action GameRestarts;
         public event Action GameEnded;
 
+        private bool _isGameOver;
+
         private void Start()
         {
+            _isGameOver = false;
             _startCanvas.enabled = true;
             _tutorialCanvas.enabled = false;
             _gameCanvas.enabled = false;
@@ -30,6 +33,7 @@ namespace DefaultNamespace
 
         public void StartGame()
         {
+            _isGameOver = false;
             _startCanvas.enabled = false;
             _tutorialCanvas.enabled = false;
             _gameCanvas.enabled = true;
@@ -38,6 +42,7 @@ namespace DefaultNamespace
 
         public void RestartGame()
         {
+            _isGameOver = false;
             _gameEndCanvas.enabled = false;
             _gameCanvas.enabled = true;
             GameRestarts?.Invoke();
@@ -45,6 +50,12 @@ namespace DefaultNamespace
 
         public void EndGame()
         {
+            if (_isGameOver)
+            {
+                return;
+            }
+
+            _isGameOver = true;
             _gameCanvas.enabled = false;
             _gameEndCanvas.enabled = true;
             GameEnded?.Invoke();
