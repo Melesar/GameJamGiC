@@ -40,13 +40,14 @@ namespace GameResources
             if (Physics.Raycast(screenRay, out RaycastHit hit) == false) return;
 
             var buildTile = hit.collider.tag;
-
+            selectedTile = hit.collider.transform.gameObject;
             if (buildTile != "BoardTile")
             {
+                selectedTile = null;
                 return;
             }
+            Debug.Log("dzia ³a dalej");
             
-            selectedTile = hit.collider.transform.gameObject;
             _selectedTilePos = selectedTile.transform.position;
             TileColorChange();
 
