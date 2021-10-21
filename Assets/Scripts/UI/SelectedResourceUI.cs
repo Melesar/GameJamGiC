@@ -12,6 +12,7 @@ namespace DefaultNamespace.UI
         [SerializeField] private TMP_Text _pointsValue;
         [SerializeField] private Image _cityImage;
         [SerializeField] private Image _natureImage;
+        [SerializeField] private UiSettings _uiSettings;
 
         public void SetSelectedResource(Resource resource)
         {
@@ -19,7 +20,7 @@ namespace DefaultNamespace.UI
             if (resource == null) return;
             
             _resourceNameText.text = resource.Type.ToString();
-            _pointsValue.text = $"{resource.CityPoints.ToString()} POINTS";
+            _pointsValue.text = $"{(resource.CityPoints * _uiSettings.ScoreDisplayMultiplier).ToString()} POINTS";
             _cityImage.sprite = resource.CityPreview;
             _natureImage.sprite = resource.NaturePreview;
         }
