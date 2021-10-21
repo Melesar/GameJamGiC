@@ -56,7 +56,8 @@ namespace GameResources.Editor
         private void ScrollResource(SerializedProperty resourceProperty, ResourceType resourceType)
         {
             int length = Enum.GetNames(typeof(ResourceType)).Length;
-            int newValue = (int) Mathf.Repeat((int) resourceType, length - 2) + 1;
+            int newValue = (int) Mathf.Repeat((int) resourceType + 1, length);
+            newValue += newValue == 0 ? 1 : 0;
             resourceProperty.objectReferenceValue = _resourceDatabase.GetResourceByType((ResourceType) newValue);
         }
 
