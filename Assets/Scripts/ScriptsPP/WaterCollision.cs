@@ -8,7 +8,7 @@ public class WaterCollision : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
-        if (collider.gameObject.tag != "Resources")
+        if (collider.gameObject.tag != "Resource")
         {
             _gameManager.EndGame();
         }
