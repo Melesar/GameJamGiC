@@ -7,6 +7,8 @@ In this game you build a city using the resources from the ground. But you must 
 ## Credits
 
 [PiotrPe0212](https://github.com/PiotrPe0212)
+
 [David](https://github.com/hdrichard)
+
 [Melesar](https://github.com/Melesar)
 
