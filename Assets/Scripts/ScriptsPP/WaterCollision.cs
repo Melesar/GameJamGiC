@@ -6,9 +6,9 @@ public class WaterCollision : MonoBehaviour
 {
     [SerializeField] private GameManager _gameManager;
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collider)
     {
-        if (collision.gameObject.tag != "Resources")
+        if (collider.gameObject.tag != "Resources")
         {
             _gameManager.EndGame();
         }
