@@ -1,5 +1,6 @@
 using DefaultNamespace;
 using DefaultNamespace.UI;
+using TMPro;
 using UnityEngine;
 
 namespace GameResources
@@ -17,7 +18,9 @@ namespace GameResources
 
         private bool _isGameRunning;
         private DiggingState _currentState;
+        private ResourceItem _lastHighlightedResource;
         public ResourceItem _selectedResource;
+        
 
         private void Awake()
         {
@@ -43,6 +46,23 @@ namespace GameResources
                 return;
             }
             
+            Ray screenRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(screenRay, out RaycastHit hit, 1000, ~0, QueryTriggerInteraction.Ignore) == false) return;
+            if (TryGetResource(hit, out ResourceItem resourceItem) && resourceItem.IsAvailableForDigging)
+            {
+                if (_lastHighlightedResource != null)
+                {
+                    _lastHighlightedResource.SetHighlight(false);
+                }
+
+                resourceItem.SetHighlight(true);
+                _lastHighlightedResource = resourceItem;
+            }
+            else if (_lastHighlightedResource != null)
+            {
+                _lastHighlightedResource.SetHighlight(false);
+            }
+            
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 Cancel();
@@ -53,9 +73,6 @@ namespace GameResources
             {
                 return;
             }
-
-            Ray screenRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(screenRay, out RaycastHit hit, 1000, ~0, QueryTriggerInteraction.Ignore) == false) return;
             
             switch (_currentState)
             {
@@ -108,6 +125,12 @@ namespace GameResources
 
         private void SelectResource(ResourceItem resourceItem)
         {
+            if (resourceItem.IsAvailableForDigging == false)
+            {
+                resourceItem.Blink();
+                return;
+            }
+            
             _selectedResource = resourceItem;
             _currentState = DiggingState.ResourceSelected;
             _selectedResourceUI.SetSelectedResource(_selectedResource.Resource);
@@ -120,19 +143,13 @@ namespace GameResources
             {
                 return false;
             }
-
-            if (item.IsAvailableForDigging == false)
-            {
-                item.Blink();
-                return false;
-            }
-
             return true;
         }
 
         private void OnGameRestarts()
         {
             Cancel();
+            _lastHighlightedResource = null;
             _selectedResourceUI.SetSelectedResource(null);
             _isGameRunning = true;
         }

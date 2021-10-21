@@ -15,7 +15,7 @@ public class Grid : MonoBehaviour
     [SerializeField] private GameManager _gameManager;
     [SerializeField] private Vector3 bonusNaturePos;
     private List<GameObject> _spawnedObjects;
-
+    private GameObject block;
     private void Awake()
     {
         _spawnedObjects = new List<GameObject>();
@@ -53,13 +53,15 @@ public class Grid : MonoBehaviour
             _spawnedObjects.Add(baseBlock);
             for (float z = moveInZ; z < gridSizeZ * size + moveInZ; z += size)
             {
-               
-
-                GameObject block = Instantiate(Tile);
+                
 
                 if (x == bonusNaturePos.x && z == bonusNaturePos.z)
                 {
                     block = Instantiate(NatureTile);
+                }
+                else
+                {
+                    block = Instantiate(Tile);
                 }
                 block.transform.position = new Vector3(x, 0.5f, z);
                 block.transform.parent = gameObject.transform;

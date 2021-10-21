@@ -47,6 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rig: {fileID: 4262138874697231778}
   _renderer: {fileID: 8043664968499648594}
+  _highlightColor: {r: 1.9377067, g: 1.9377067, b: 1.9377067, a: 1}
 --- !u!54 &8868276222272265257
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -14,6 +14,7 @@ namespace DefaultNamespace
         [SerializeField] private float _furthestZ;
         [SerializeField] private float _curvatureRadius;
         [SerializeField] private Transform _transform;
+        [SerializeField] [Range(0f, 1f)] private float _initialPosition;
 
         private Vector3 _lowest;
         private Vector3 _transitionStart;
@@ -47,6 +48,7 @@ namespace DefaultNamespace
 
         private void Start()
         {
+            _currentLerp = _initialPosition;
             BuildPath();
             LerpPath();
         }
