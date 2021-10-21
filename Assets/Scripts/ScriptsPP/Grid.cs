@@ -22,6 +22,12 @@ public class Grid : MonoBehaviour
                 _block = Instantiate(Tile);
                 _block.transform.position = new Vector3(x, 0.5f, z);
                 _block.transform.parent = gameObject.transform;
+                if (x <=0)
+                { Renderer Tile;
+                    Tile = _block.GetComponent<Renderer>();
+                        Tile.material.color = new Color32(255, 180, 0, 255);
+
+                }
             }
         }
     }
