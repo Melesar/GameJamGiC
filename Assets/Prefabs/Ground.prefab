@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Tile: {fileID: 7333764482358279304, guid: f1bd4190f0fa497449978b05c5cfc2f9, type: 3}
+  Underground: {fileID: 4686236128343150556, guid: 3a31bfbe7798b2b4b89d8c437115dc0c, type: 3}
   size: 2
   gridSizeX: 12
   gridSizeZ: 5
