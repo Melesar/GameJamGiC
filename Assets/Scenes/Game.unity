@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.35385936, g: 0.49791062, b: 0.7675719, a: 1}
+  m_IndirectSpecularColor: {r: 0.18857977, g: 0.38801998, b: 0.7380574, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 581238501}
   - component: {fileID: 581238500}
   - component: {fileID: 581238499}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: WaterCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1282,6 +1282,8 @@ MonoBehaviour:
   mixer: {fileID: 24100000, guid: a4be37733eb938f4ab13200853cbb139, type: 2}
   _gameManager: {fileID: 843565210}
   board: {fileID: 783435453}
+  sustenValue: 0
+  cityPoints: 0
 --- !u!82 &918830906
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1432,7 +1434,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 65
+  field of view: 70
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
