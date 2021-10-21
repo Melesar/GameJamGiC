@@ -55,7 +55,7 @@ namespace GameResources
             }
 
             Ray screenRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(screenRay, out RaycastHit hit) == false) return;
+            if (Physics.Raycast(screenRay, out RaycastHit hit, 1000, ~0, QueryTriggerInteraction.Ignore) == false) return;
             
             switch (_currentState)
             {
