@@ -1282,6 +1282,8 @@ MonoBehaviour:
   mixer: {fileID: 24100000, guid: a4be37733eb938f4ab13200853cbb139, type: 2}
   _gameManager: {fileID: 843565210}
   board: {fileID: 783435453}
+  sustenValue: 0
+  cityPoints: 0
 --- !u!82 &918830906
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2284,9 +2286,25 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 823505314536210840, guid: 86c7b341258f6c1d5af667a726a4d04e, type: 3}
+      propertyPath: NatureTile
+      value: 
+      objectReference: {fileID: 6290195240363452799, guid: 20358048212de69469e8970cc9a652ef, type: 3}
+    - target: {fileID: 823505314536210840, guid: 86c7b341258f6c1d5af667a726a4d04e, type: 3}
       propertyPath: _gameManager
       value: 
       objectReference: {fileID: 843565210}
+    - target: {fileID: 823505314536210840, guid: 86c7b341258f6c1d5af667a726a4d04e, type: 3}
+      propertyPath: bonusNaturePos.x
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 823505314536210840, guid: 86c7b341258f6c1d5af667a726a4d04e, type: 3}
+      propertyPath: bonusNaturePos.z
+      value: -4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4182337982704443024, guid: 86c7b341258f6c1d5af667a726a4d04e, type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6043813776413557098, guid: 86c7b341258f6c1d5af667a726a4d04e, type: 3}
       propertyPath: m_RootOrder
       value: 8

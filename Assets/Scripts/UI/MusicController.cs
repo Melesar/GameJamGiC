@@ -68,8 +68,7 @@ public class MusicController : MonoBehaviour
 
     int Sustencounter()
     {
-        Debug.Log(sustenValue + "tilt");
-        Debug.Log(cityPoints + "citypoints");
+
         if (sustenValue < sustainBorder && cityPoints < pointsToGoodSound)
             return 0; //Neutral
         if (sustenValue < sustainBorder && cityPoints > pointsToGoodSound && cityPoints <pointsToVGoodSound)

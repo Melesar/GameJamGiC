@@ -14,7 +14,6 @@ namespace GameResources
         [SerializeField] private GameManager _gameManager;
 
         public GameObject selectedTile;
-        
         private Renderer _prevTile;
         private Vector3 _selectedTilePos;
         private ResourceItem _selectedResource;
