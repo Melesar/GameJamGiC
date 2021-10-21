@@ -37,7 +37,7 @@ namespace GameResources.Editor
                 EditorGUILayout.BeginHorizontal();
                 for (int column = 0; column < width.intValue; column++)
                 {
-                    SerializedProperty resourceProperty = resources.GetArrayElementAtIndex(row * height.intValue + column);
+                    SerializedProperty resourceProperty = resources.GetArrayElementAtIndex(row * width.intValue + column);
                     var resource = (Resource) resourceProperty.objectReferenceValue;
                     
                     bool isPressed = GUILayout.Button(new GUIContent(resource.Sprite.texture),
@@ -56,7 +56,8 @@ namespace GameResources.Editor
         private void ScrollResource(SerializedProperty resourceProperty, ResourceType resourceType)
         {
             int length = Enum.GetNames(typeof(ResourceType)).Length;
-            int newValue = (int) Mathf.Repeat((int) resourceType, length - 2) + 1;
+            int newValue = (int) Mathf.Repeat((int) resourceType + 1, length);
+            newValue += newValue == 0 ? 1 : 0;
             resourceProperty.objectReferenceValue = _resourceDatabase.GetResourceByType((ResourceType) newValue);
         }
 

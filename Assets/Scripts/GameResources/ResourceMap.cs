@@ -11,6 +11,6 @@ namespace GameResources
 
         public (int, int) Size => (_width, _height);
 
-        public Resource this[int row, int column] => _resources[row * _height + column];
+        public Resource this[int row, int column] => _resources[row * _width + column];
     }
 }

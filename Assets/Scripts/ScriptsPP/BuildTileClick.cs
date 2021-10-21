@@ -12,10 +12,9 @@ namespace GameResources
 
        private Renderer _prevTile;
         private Vector3 _selectedTilePos;
-        private Color _initialColor;
         public GameObject selectedTile;
         ResourceItem _selectedResource;
-
+        Color _previnitialColor;
         // Update is called once per frame
         private void Update()
         {
@@ -65,21 +64,22 @@ namespace GameResources
         void TileColorChange()
         {
             Renderer TileRenderer;
+            
             TileRenderer = selectedTile.GetComponent<Renderer>();
-            _initialColor = TileRenderer.material.color;
-
 
             if (!_prevTile)
             {
                 _prevTile = TileRenderer;
+                _previnitialColor = _prevTile.material.color;
                 TileRenderer.material.color = Color.white;
             }
 
             if (TileRenderer != _prevTile)
             {
                 if (_prevTile.material.color == Color.white)
-                    _prevTile.material.color = _initialColor;
+                    _prevTile.material.color = _previnitialColor;
                 _prevTile = null;
+                
 
             }
         }
