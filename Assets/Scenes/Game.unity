@@ -1230,8 +1230,7 @@ MonoBehaviour:
   pointsToGoodSound: 5
   pointsToVGoodSound: 10
   mixer: {fileID: 24100000, guid: a4be37733eb938f4ab13200853cbb139, type: 2}
-  _firstsnap: {fileID: 0}
-  _secondsnap: {fileID: 0}
+  _gameManager: {fileID: 843565210}
 --- !u!82 &918830906
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1241,10 +1240,10 @@ AudioSource:
   m_GameObject: {fileID: 918830903}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 5117007893687157593, guid: a4be37733eb938f4ab13200853cbb139, type: 2}
+  OutputAudioMixerGroup: {fileID: -5069903636696866665, guid: a4be37733eb938f4ab13200853cbb139, type: 2}
   m_audioClip: {fileID: 8300000, guid: 8c74d668d1bdfd04d9950c8cbc638d81, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.674
   m_Pitch: 1
   Loop: 1
   Mute: 0
