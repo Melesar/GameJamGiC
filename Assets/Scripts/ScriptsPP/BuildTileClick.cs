@@ -46,7 +46,6 @@ namespace GameResources
                 selectedTile = null;
                 return;
             }
-            Debug.Log("dzia ³a dalej");
             
             _selectedTilePos = selectedTile.transform.position;
             TileColorChange();
