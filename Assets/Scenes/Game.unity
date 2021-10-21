@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.35385936, g: 0.49791062, b: 0.7675719, a: 1}
+  m_IndirectSpecularColor: {r: 0.35385394, g: 0.4979061, b: 0.7675814, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -590,6 +590,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 761f15be91dde2745aede4440164d626, type: 3}
+--- !u!223 &723369391 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 4766248979433895572, guid: 761f15be91dde2745aede4440164d626, type: 3}
+  m_PrefabInstance: {fileID: 723369390}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &735399324
 GameObject:
   m_ObjectHideFlags: 0
@@ -854,6 +859,52 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &843565209
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 843565211}
+  - component: {fileID: 843565210}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &843565210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843565209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3405bb720118499b8b2a86918140b73c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameCanvas: {fileID: 723369391}
+  _tutorialCanvas: {fileID: 0}
+  _gameEndCanvas: {fileID: 1138760489}
+--- !u!4 &843565211
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843565209}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 496.4734, y: 240.72699, z: -22.619972}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &918830903
 GameObject:
   m_ObjectHideFlags: 0
@@ -1301,6 +1352,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ccbede50d2b79e846aff57551893be29, type: 3}
+--- !u!223 &1138760489 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 4766248979433895572, guid: ccbede50d2b79e846aff57551893be29, type: 3}
+  m_PrefabInstance: {fileID: 1138760488}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1309375589 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2321631866673635860, guid: 761f15be91dde2745aede4440164d626, type: 3}
@@ -1686,7 +1742,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22480470477a1de4aaf03463fd9a86e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  endOfGame: 0
+  _gameManager: {fileID: 843565210}
 --- !u!1001 &1159331310280327538
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1710,6 +1766,10 @@ PrefabInstance:
       propertyPath: gridSizeZ
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 823505314536210840, guid: 86c7b341258f6c1d5af667a726a4d04e, type: 3}
+      propertyPath: _gameManager
+      value: 
+      objectReference: {fileID: 843565210}
     - target: {fileID: 6043813776413557098, guid: 86c7b341258f6c1d5af667a726a4d04e, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -1841,9 +1901,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 7500558818367790839, guid: ed928d02a79c5859991b7b43d82de4a6, type: 3}
+      propertyPath: _gameManager
+      value: 
+      objectReference: {fileID: 843565210}
+    - target: {fileID: 7500558818367790839, guid: ed928d02a79c5859991b7b43d82de4a6, type: 3}
       propertyPath: _cityPointsUI
       value: 
       objectReference: {fileID: 1309375589}
+    - target: {fileID: 7931858441314474245, guid: ed928d02a79c5859991b7b43d82de4a6, type: 3}
+      propertyPath: _gameManager
+      value: 
+      objectReference: {fileID: 843565210}
     - target: {fileID: 7931858441314474245, guid: ed928d02a79c5859991b7b43d82de4a6, type: 3}
       propertyPath: _buildTileClick
       value: 
@@ -1904,6 +1972,10 @@ PrefabInstance:
       propertyPath: _blockSize.z
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 7931858441314474251, guid: ed928d02a79c5859991b7b43d82de4a6, type: 3}
+      propertyPath: _gameManager
+      value: 
+      objectReference: {fileID: 843565210}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed928d02a79c5859991b7b43d82de4a6, type: 3}
 --- !u!1 &7931858441981014174 stripped

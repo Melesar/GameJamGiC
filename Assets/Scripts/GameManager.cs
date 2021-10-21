@@ -14,9 +14,9 @@ namespace DefaultNamespace
 
         private void Start()
         {
-            _tutorialCanvas.enabled = true;
             _gameCanvas.enabled = false;
             _gameEndCanvas.enabled = false;
+            _tutorialCanvas.enabled = true;
         }
 
         public void StartGame()
