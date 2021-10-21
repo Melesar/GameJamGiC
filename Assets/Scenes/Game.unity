@@ -2426,6 +2426,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 783435456}
     - target: {fileID: 1544124921611684900, guid: 9a2e10bc9b0ffd89e873308e02a010f9, type: 3}
+      propertyPath: _gameManager
+      value: 
+      objectReference: {fileID: 843565210}
+    - target: {fileID: 1544124921611684900, guid: 9a2e10bc9b0ffd89e873308e02a010f9, type: 3}
       propertyPath: _planeTransform
       value: 
       objectReference: {fileID: 0}
