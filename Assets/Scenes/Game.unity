@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.35385394, g: 0.4979061, b: 0.7675814, a: 1}
+  m_IndirectSpecularColor: {r: 0.35385936, g: 0.49791062, b: 0.7675719, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -924,7 +924,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 65
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -950,7 +950,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.1736435, y: 0.007218983, z: -0.0012729013, w: 0.9847813}
-  m_LocalPosition: {x: 1.8028613, y: 5, z: -20}
+  m_LocalPosition: {x: 0, y: 5, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 918830904}
@@ -970,12 +970,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: 0.4
-  _cameraXValue: 1
-  _cameraZOffset: 17
-  _cameraYOffset: 15
-  _lowestY: 1
-  _furthestZ: 1
-  _curvatureRadius: 10
+  _cameraXValue: 0
+  _cameraZOffset: 17.22
+  _cameraYOffset: 9.79
+  _lowestY: -2.28
+  _furthestZ: -4
+  _curvatureRadius: 11.8
   _transform: {fileID: 963194228}
 --- !u!1001 &1138760488
 PrefabInstance:
@@ -1506,11 +1506,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 823505314536210840, guid: 86c7b341258f6c1d5af667a726a4d04e, type: 3}
       propertyPath: moveInX
-      value: -11
+      value: -9
       objectReference: {fileID: 0}
     - target: {fileID: 823505314536210840, guid: 86c7b341258f6c1d5af667a726a4d04e, type: 3}
       propertyPath: gridSizeX
-      value: 12
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 823505314536210840, guid: 86c7b341258f6c1d5af667a726a4d04e, type: 3}
       propertyPath: gridSizeZ
