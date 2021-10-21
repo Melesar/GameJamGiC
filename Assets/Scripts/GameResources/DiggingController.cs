@@ -13,9 +13,20 @@ namespace GameResources
         [SerializeField] private RewardAnimation _regularReward;
         [SerializeField] private RewardAnimation _shinyReward;
         [SerializeField] private float _shinyRewardThreshold;
+        [SerializeField] private GameManager _gameManager;
         
         private DiggingState _currentState;
         public ResourceItem _selectedResource;
+
+        private void Awake()
+        {
+            _gameManager.GameRestarts += OnGameRestarts;
+        }
+
+        private void OnDestroy()
+        {
+            _gameManager.GameRestarts -= OnGameRestarts;
+        }
 
         private void Start()
         {
@@ -109,6 +120,12 @@ namespace GameResources
             }
 
             return true;
+        }
+
+        private void OnGameRestarts()
+        {
+            Cancel();
+            _selectedResourceUI.SetSelectedResource(null);
         }
 
         private enum DiggingState
