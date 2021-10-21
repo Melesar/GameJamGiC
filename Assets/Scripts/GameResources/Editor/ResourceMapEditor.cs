@@ -37,7 +37,7 @@ namespace GameResources.Editor
                 EditorGUILayout.BeginHorizontal();
                 for (int column = 0; column < width.intValue; column++)
                 {
-                    SerializedProperty resourceProperty = resources.GetArrayElementAtIndex(row * height.intValue + column);
+                    SerializedProperty resourceProperty = resources.GetArrayElementAtIndex(row * width.intValue + column);
                     var resource = (Resource) resourceProperty.objectReferenceValue;
                     
                     bool isPressed = GUILayout.Button(new GUIContent(resource.Sprite.texture),
