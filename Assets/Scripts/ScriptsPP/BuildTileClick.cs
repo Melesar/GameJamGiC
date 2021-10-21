@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using DefaultNamespace;
 using UnityEngine;
 
 namespace GameResources
@@ -9,16 +11,32 @@ namespace GameResources
         [SerializeField] private GameObject[] NaturePrefabArray;
         [SerializeField] private GameObject Ground;
         [SerializeField] private GameObject _spawnEffect;
+        [SerializeField] private GameManager _gameManager;
 
-       private Renderer _prevTile;
-        private Vector3 _selectedTilePos;
         public GameObject selectedTile;
-        ResourceItem _selectedResource;
-        Color _previnitialColor;
-        // Update is called once per frame
+        
+        private Renderer _prevTile;
+        private Vector3 _selectedTilePos;
+        private ResourceItem _selectedResource;
+        private Color _previnitialColor;
+        private List<GameObject> _spawnedObjects;
+        private bool _isGameRunning;
+
+        private void Awake()
+        {
+            _spawnedObjects = new List<GameObject>();
+            _gameManager.GameStarted += () => _isGameRunning = true;
+            _gameManager.GameRestarts += OnGameRestarts;
+            _gameManager.GameEnded += () => _isGameRunning = false;
+        }
+
+        private void OnDestroy()
+        {
+            _gameManager.GameRestarts -= OnGameRestarts;
+        }
+
         private void Update()
         {
-
             Ray screenRay = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(screenRay, out RaycastHit hit) == false) return;
 
@@ -58,6 +76,7 @@ namespace GameResources
 
             tile.transform.parent = Ground.transform;
             tile.transform.rotation = selectedTile.transform.rotation;
+            _spawnedObjects.Add(tile);
             Destroy(selectedTile);
         }
 
@@ -79,9 +98,17 @@ namespace GameResources
                 if (_prevTile.material.color == Color.white)
                     _prevTile.material.color = _previnitialColor;
                 _prevTile = null;
-                
-
             }
+        }
+
+        private void OnGameRestarts()
+        {
+            foreach (GameObject spawnedObject in _spawnedObjects)
+            {
+                Destroy(spawnedObject);
+            }
+            _spawnedObjects.Clear();
+            _isGameRunning = true;
         }
     }
 }

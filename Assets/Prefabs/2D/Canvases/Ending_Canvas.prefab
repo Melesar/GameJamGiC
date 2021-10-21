@@ -326,7 +326,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _uiSettings: {fileID: 11400000, guid: d168c2587a3667ce78d69396d0687fb8, type: 2}
-  _populationText: {fileID: 629242431560744619}
+  _populationText: {fileID: 2586789385181270080}
 --- !u!1 &7790494917215836508
 GameObject:
   m_ObjectHideFlags: 0
