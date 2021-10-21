@@ -14,12 +14,15 @@ namespace GameResources
         [SerializeField] private RewardAnimation _shinyReward;
         [SerializeField] private float _shinyRewardThreshold;
         [SerializeField] private GameManager _gameManager;
-        
+
+        private bool _isGameRunning;
         private DiggingState _currentState;
         public ResourceItem _selectedResource;
 
         private void Awake()
         {
+            _gameManager.GameStarted += () => _isGameRunning = true;
+            _gameManager.GameEnded += () => _isGameRunning = false;
             _gameManager.GameRestarts += OnGameRestarts;
         }
 
@@ -35,6 +38,11 @@ namespace GameResources
 
         private void Update()
         {
+            if (_isGameRunning == false)
+            {
+                return;
+            }
+            
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 Cancel();
@@ -126,6 +134,7 @@ namespace GameResources
         {
             Cancel();
             _selectedResourceUI.SetSelectedResource(null);
+            _isGameRunning = true;
         }
 
         private enum DiggingState

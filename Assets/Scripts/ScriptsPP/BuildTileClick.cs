@@ -20,11 +20,14 @@ namespace GameResources
         private ResourceItem _selectedResource;
         private Color _previnitialColor;
         private List<GameObject> _spawnedObjects;
+        private bool _isGameRunning;
 
         private void Awake()
         {
             _spawnedObjects = new List<GameObject>();
+            _gameManager.GameStarted += () => _isGameRunning = true;
             _gameManager.GameRestarts += OnGameRestarts;
+            _gameManager.GameEnded += () => _isGameRunning = false;
         }
 
         private void OnDestroy()
@@ -105,6 +108,7 @@ namespace GameResources
                 Destroy(spawnedObject);
             }
             _spawnedObjects.Clear();
+            _isGameRunning = true;
         }
     }
 }
