@@ -39,12 +39,13 @@ namespace GameResources.Editor
                 {
                     SerializedProperty resourceProperty = resources.GetArrayElementAtIndex(row * width.intValue + column);
                     var resource = (Resource) resourceProperty.objectReferenceValue;
-                    
-                    bool isPressed = GUILayout.Button(new GUIContent(resource.Sprite.texture),
+
+                    GUIContent content = resource != null ? new GUIContent(resource.Sprite.texture) : new GUIContent();
+                    bool isPressed = GUILayout.Button(content,
                         GUILayout.MaxWidth(100), GUILayout.MaxHeight(100), GUILayout.MinHeight(20), GUILayout.MinHeight(20));
                     if (isPressed)
                     {
-                        ScrollResource(resourceProperty, resource.Type);
+                        ScrollResource(resourceProperty, resource != null ? resource.Type : ResourceType.None);
                     }
                 }
                 EditorGUILayout.EndHorizontal();
@@ -57,7 +58,6 @@ namespace GameResources.Editor
         {
             int length = Enum.GetNames(typeof(ResourceType)).Length;
             int newValue = (int) Mathf.Repeat((int) resourceType + 1, length);
-            newValue += newValue == 0 ? 1 : 0;
             resourceProperty.objectReferenceValue = _resourceDatabase.GetResourceByType((ResourceType) newValue);
         }
 
