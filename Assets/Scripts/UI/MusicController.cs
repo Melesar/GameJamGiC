@@ -103,4 +103,3 @@ public class MusicController : MonoBehaviour
         MusicSet(0);
         SetSound(0, MusicVolume[5]);
     }
-}

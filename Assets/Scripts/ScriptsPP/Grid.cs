@@ -5,6 +5,7 @@ using UnityEngine;
 public class Grid : MonoBehaviour
 {
     [SerializeField] private GameObject Tile;
+    [SerializeField] private GameObject NatureTile;
     [SerializeField] private GameObject Underground;
     [SerializeField] private float size = 1f;
     [SerializeField] private float gridSizeX = 6;
@@ -12,7 +13,7 @@ public class Grid : MonoBehaviour
     [SerializeField] private float moveInX = -10;
     [SerializeField] private float moveInZ = 5;
     [SerializeField] private GameManager _gameManager;
-
+    [SerializeField] private Vector3 bonusNaturePos;
     private List<GameObject> _spawnedObjects;
 
     private void Awake()
@@ -52,7 +53,14 @@ public class Grid : MonoBehaviour
             _spawnedObjects.Add(baseBlock);
             for (float z = moveInZ; z < gridSizeZ * size + moveInZ; z += size)
             {
+               
+
                 GameObject block = Instantiate(Tile);
+
+                if (x == bonusNaturePos.x && z == bonusNaturePos.z)
+                {
+                    block = Instantiate(NatureTile);
+                }
                 block.transform.position = new Vector3(x, 0.5f, z);
                 block.transform.parent = gameObject.transform;
                

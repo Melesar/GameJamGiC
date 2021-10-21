@@ -15,7 +15,7 @@ MonoBehaviour:
   _type: 5
   _material: {fileID: 2100000, guid: 511fb2d6a94dafa10a495c94878b157d, type: 2}
   _sprite: {fileID: 21300000, guid: 2d5c5ea33d6fc0e4582dbda98d4d671c, type: 3}
-  _cityPoints: 1.5
-  _naturePoints: 1.5
+  _cityPoints: 1.6
+  _naturePoints: 1.6
   _cityPreview: {fileID: 21300000, guid: 865a90d2eafc12741be6256855c8425f, type: 3}
   _naturePreview: {fileID: 21300000, guid: 7ab5532b7a86fe948929f0442e253948, type: 3}
