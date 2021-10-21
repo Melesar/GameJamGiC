@@ -1501,6 +1501,7 @@ MonoBehaviour:
   _furthestZ: -4
   _curvatureRadius: 11.8
   _transform: {fileID: 963194228}
+  _initialPosition: 0.4
 --- !u!114 &963194230
 MonoBehaviour:
   m_ObjectHideFlags: 0
