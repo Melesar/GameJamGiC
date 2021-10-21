@@ -12,8 +12,7 @@ using UnityEngine;
     [SerializeField] private float pointsToGoodSound;
     [SerializeField] private float pointsToVGoodSound;
         [SerializeField] AudioMixer mixer;
-    [SerializeField] AudioMixerSnapshot _firstsnap;
-    [SerializeField] AudioMixerSnapshot _secondsnap;
+    [SerializeField] GameObject ground;
 
 
     private string[] MusicVolume =
@@ -30,7 +29,8 @@ using UnityEngine;
         private float cityPoints;
         private float naturePoints;
     private float prevSustannValue;
-    private int lastSound;
+    private float groundTiltValue;
+    private float prevgroundTiltValue;
         
 
         private void Start()
@@ -47,13 +47,14 @@ using UnityEngine;
         cityPoints = _resourcesController.GetResourcePoints(DefaultNamespace.BoardSide.City);
         naturePoints = _resourcesController.GetResourcePoints(DefaultNamespace.BoardSide.Nature);
         sustenValue = Mathf.Abs(cityPoints - naturePoints);
-
-
-        if(sustenValue!= prevSustannValue)
+        groundTiltValue = Mathf.Abs (ground.transform.localEulerAngles.z);
+        Debug.Log(groundTiltValue);
+        if(sustenValue!= prevSustannValue || groundTiltValue != prevgroundTiltValue)
         {
-            Debug.Log(Sustencounter() + "VALLLL");
+           
             MusicSet(Sustencounter());
             prevSustannValue = sustenValue;
+            prevgroundTiltValue = groundTiltValue;
         }
         
         }
@@ -65,15 +66,15 @@ using UnityEngine;
       
         Debug.Log(sustenValue);
        
-            if (sustenValue < sustainBorder)
+            if (groundTiltValue < sustainBorder)
                 return 0; //Neutral
-            else if (sustenValue < sustainBorder && cityPoints > pointsToGoodSound)
+            else if (groundTiltValue < sustainBorder && cityPoints > pointsToGoodSound)
                 return 1; //Good
-            else if (sustenValue < sustainBorder && cityPoints > pointsToVGoodSound)
+            else if (groundTiltValue < sustainBorder && cityPoints > pointsToVGoodSound)
                 return 2; //VGood
-            else if (sustenValue > sustainBorder)
+            else if (groundTiltValue > sustainBorder)
                 return 3; // Bad
-            else if (sustenValue > borderToVBadSound)
+            else if (groundTiltValue > borderToVBadSound)
                 return 4; //VBad
 
             return 0;
@@ -82,14 +83,14 @@ using UnityEngine;
 
     void MusicSet(int track)
     {
-        Debug.Log("music change");
+        
         for (int i = 0; i < MusicVolume.Length-1; i++)
         {
             SetSound(-80, MusicVolume[i]);
             Debug.Log("loop" + i);
         }
         SetSound(0, MusicVolume[track]);
-        Debug.Log("end" + track);
+      
     }
 
     void SetSound(float soundLevel, string valueName)
