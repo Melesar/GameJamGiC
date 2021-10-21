@@ -765,7 +765,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00d75014af614ab799fbefbb56378dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _displayScoreMultiplier: 100
+  _uiSettings: {fileID: 11400000, guid: d168c2587a3667ce78d69396d0687fb8, type: 2}
   _pointsText: {fileID: 2586789385181270080}
 --- !u!1 &7790494917215836508
 GameObject:

@@ -7,12 +7,13 @@ namespace DefaultNamespace.UI
     {
         [SerializeField] private TMP_Text _numberText;
         [SerializeField] private float _animationDuration;
+        [SerializeField] private UiSettings _uiSettings;
 
         private Camera _camera;
 
         public void SetPoints(float points)
         {
-            _numberText.text = points.ToString();
+            _numberText.text = (points * _uiSettings.ScoreDisplayMultiplier).ToString();
         }
 
         private void Awake()

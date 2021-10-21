@@ -68,6 +68,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _numberText: {fileID: 2151350508492948348}
   _animationDuration: 2.5
+  _uiSettings: {fileID: 11400000, guid: d168c2587a3667ce78d69396d0687fb8, type: 2}
 --- !u!82 &3212787407945215497
 AudioSource:
   m_ObjectHideFlags: 0

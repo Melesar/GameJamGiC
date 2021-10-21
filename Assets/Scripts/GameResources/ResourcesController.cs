@@ -9,6 +9,7 @@ namespace GameResources
     public class ResourcesController : MonoBehaviour
     {
         [SerializeField] private CityPointsUI _cityPointsUI;
+        [SerializeField] private FinalPopulationDisplay _finalPopulation;
         [SerializeField] private GameManager _gameManager;
         
         private Dictionary<BoardSide, float> _pointsMap;
@@ -43,6 +44,7 @@ namespace GameResources
             if (side == BoardSide.City)
             {
                 _cityPointsUI.SetPoints(_pointsMap[side]);
+                _finalPopulation.SetFinalPopulation(_pointsMap[side]);
             }
 
             return pointsToAdd;
