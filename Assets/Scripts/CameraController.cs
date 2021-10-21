@@ -118,7 +118,7 @@ namespace DefaultNamespace
 
             int MouseMoveDirection(Vector3 position)
             {
-                return Input.GetMouseButton(1) ? Math.Sign((position - _lastMousePosition).y) : 0;
+                return Input.GetMouseButton(2) ? Math.Sign((_lastMousePosition - position).y) : 0;
             }
 
             return direction != 0;

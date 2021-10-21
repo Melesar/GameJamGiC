@@ -65,9 +65,13 @@ namespace GameResources
                 for (int column = 0; column < width; column++)
                 {
                     Resource resource = _map[row, column];
+                    if (resource == null)
+                    {
+                        continue;
+                    }
                     Vector3 position = _anchor.position + new Vector3(_blockSize.x * column, -_blockSize.y * row);
                     ResourceItem item = SpawnResource(resource, position);
-                    item.IsAvailableForDigging = row == 0;
+                    item.IsAvailableForDigging = row == 0 || grid[(row - 1) * width + column] == null;
                     item.Position = (column, row);
                     grid[row * width + column] = item;
                 }
