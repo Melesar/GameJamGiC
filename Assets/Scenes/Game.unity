@@ -1119,8 +1119,7 @@ MonoBehaviour:
   pointsToGoodSound: 5
   pointsToVGoodSound: 10
   mixer: {fileID: 24100000, guid: a4be37733eb938f4ab13200853cbb139, type: 2}
-  _firstsnap: {fileID: 0}
-  _secondsnap: {fileID: 0}
+  ground: {fileID: 783435453}
 --- !u!82 &918830906
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2160,6 +2159,10 @@ PrefabInstance:
       propertyPath: gridSizeZ
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 823505314536210840, guid: 86c7b341258f6c1d5af667a726a4d04e, type: 3}
+      propertyPath: Underground
+      value: 
+      objectReference: {fileID: 4686236128343150556, guid: 3a31bfbe7798b2b4b89d8c437115dc0c, type: 3}
     - target: {fileID: 823505314536210840, guid: 86c7b341258f6c1d5af667a726a4d04e, type: 3}
       propertyPath: _gameManager
       value: 

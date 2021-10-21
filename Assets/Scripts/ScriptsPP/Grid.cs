@@ -5,6 +5,7 @@ using UnityEngine;
 public class Grid : MonoBehaviour
 {
     [SerializeField] private GameObject Tile;
+    [SerializeField] private GameObject Underground;
     [SerializeField] private float size = 1f;
     [SerializeField] private float gridSizeX = 6;
     [SerializeField] private float gridSizeZ = 10;
@@ -45,6 +46,10 @@ public class Grid : MonoBehaviour
     {
         for (float x = moveInX; x < gridSizeX * size + moveInX; x += size)
         {
+            GameObject baseBlock = Instantiate(Underground);
+            baseBlock.transform.position = new Vector3(x, 0.1f, -4);
+            baseBlock.transform.parent = gameObject.transform;
+            _spawnedObjects.Add(baseBlock);
             for (float z = moveInZ; z < gridSizeZ * size + moveInZ; z += size)
             {
                 GameObject block = Instantiate(Tile);
