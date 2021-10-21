@@ -29,13 +29,14 @@ namespace DefaultNamespace
         {
             _gameEndCanvas.enabled = false;
             _gameCanvas.enabled = true;
+            GameRestarts?.Invoke();
         }
 
         public void EndGame()
         {
             _gameCanvas.enabled = false;
             _gameEndCanvas.enabled = true;
-            GameEnded.Invoke();
+            GameEnded?.Invoke();
         }
     }
 }

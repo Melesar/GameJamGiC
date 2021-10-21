@@ -88,7 +88,10 @@ namespace GameResources
         {
             foreach (ResourceItem resourceItem in _grid)
             {
-                Destroy(resourceItem.gameObject);
+                if (resourceItem != null)
+                {
+                    Destroy(resourceItem.gameObject);
+                }
             }
 
             _grid = GenerateResources();
